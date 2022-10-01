@@ -9,6 +9,7 @@ public class UIAim : MonoBehaviour
 
     private void Awake()
     {
+        Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Confined;
     }
     // Update is called once per frame
