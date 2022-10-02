@@ -10,6 +10,7 @@ public class PlayerUpgrade : MonoBehaviour
     [Header("Status Upgrade in %")]
     [SerializeField] private float speedUpgrade;
     [SerializeField] private float fireRateUpgrade;
+    [SerializeField] private int damageUpgrade;
 
     private float baseSpeed;
     private float baseFireRate;
@@ -19,20 +20,21 @@ public class PlayerUpgrade : MonoBehaviour
         baseSpeed = _status.moveSpeed;
         baseFireRate = _status.fireRate;
     }
-    public void MoreMoveSpeed()
+    public void MoveSpeedUpgrade()
     {
         _status.moveSpeed += (baseSpeed * (speedUpgrade/100));
     }
-    public void LessMoveSpeed()
+    public void HpUpgrade()
     {
-        _status.moveSpeed -= (baseSpeed * (speedUpgrade / 100));
+        _status.maxHp++;
+        _status.currentHp++;
     }
-    public void MoreFireRate()
+    public void FireRateUpgrade()
     {
         _status.fireRate += (baseFireRate * (fireRateUpgrade/100));
     }
-    public void LessFireRate()
+    public void DamageUpgrade()
     {
-        _status.fireRate -= (fireRateUpgrade * (fireRateUpgrade / 100));
+        _status.damage += damageUpgrade;
     }
 }
