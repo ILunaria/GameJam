@@ -5,9 +5,16 @@ public class ResetObjects : MonoBehaviour
 {
     [SerializeField] private PlayerStatus player;
 
+    private void Update()
+    {
+        if(player.currentHp <= 0)
+        {
+            OnDeath();
+        }
+    }
     public void OnDeath()
     {
-        player.OnReset();
+        player.OnPlayerReset();
         SceneManager.LoadScene(0);
     }
 }

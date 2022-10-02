@@ -7,6 +7,7 @@ public class Status : ScriptableObject
 
     [Header("In Game Status")]
     public int maxHp;
+    public int currentHp;
     public float moveSpeed;
     public int damage;
 

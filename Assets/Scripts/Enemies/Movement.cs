@@ -1,21 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    private Status _status;
+    [SerializeField] private Status _status;
+    private Rigidbody rb;
+    private Transform target;
+    private Vector3 moveDirection;
     // Start is called before the first frame update
     void Start()
     {
-        _status = (Status)ScriptableObject.CreateInstance(typeof(Status));
+        rb = GetComponent<Rigidbody>();
         Debug.Log(_status.moveSpeed);
-        ScriptableObject.Destroy(_status, 4f);
+        target = GameObject.Find("Player").transform;
     }
-
     // Update is called once per frame
     void Update()
     {
-        
+
+        Vector3 direction = (target.position - transform.position).normalized;
+        moveDirection = direction;
+    }
+    private void FixedUpdate()
+    {
+        rb.velocity = new Vector3 (moveDirection.x, 0, moveDirection.z) * _status.moveSpeed * Time.fixedDeltaTime;
     }
 }

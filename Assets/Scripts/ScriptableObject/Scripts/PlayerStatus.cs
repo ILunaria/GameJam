@@ -12,19 +12,22 @@ public class PlayerStatus : Status
     [Header("In Game Status")]
     public GameObject bullet;
     public float bulletSpeed;
+    public float fireRate;
 
     [Header("Original Status")]
     [SerializeField] private float originBulletSpeed;
+    [SerializeField] private float originFireRate;
     #endregion
     private void OnEnable()
     {
-        OnReset();
+        OnPlayerReset();
     }
-    public void OnReset()
+    public void OnPlayerReset()
     {
         maxHp = originMaxHp;
         moveSpeed = originMoveSpeed;
         damage = originDamage;
         bulletSpeed = originBulletSpeed;
+        fireRate = originFireRate;
     }
 }

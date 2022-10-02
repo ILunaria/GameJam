@@ -1,37 +1,35 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Aim : MonoBehaviour
+public class PlayerGun : MonoBehaviour
 {
+
     [SerializeField] private PlayerStatus status;
     [SerializeField] GameObject weapon;
     [SerializeField] Transform bulletSpawn;
+    float timeSinceLastShoot;
+    PlayerInputs inputs;
     private Vector3 aimDirection;
     private Vector3 screenPosition;
     private Vector3 worldPosition;
-    Plane plane = new Plane(Vector3.down, 1);
+    Plane plane = new Plane(Vector3.down, 0.7f);
 
-
-    private void Awake()
+    private void Start()
     {
-        PlayerInputs inputs = new PlayerInputs();
+        inputs = new PlayerInputs();
         inputs.Player.Enable();
-        inputs.Player.Shoot.performed += ShootAction_Performed;
-    }
-
-    public void ShootAction_Performed(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            OnShootInput();
-        }
     }
     // Update is called once per frame
     void Update()
     {
+        timeSinceLastShoot += Time.deltaTime;
+        if (inputs.Player.Shoot.IsPressed())
+        {
+            OnShootInput();
+        }
+
         screenPosition = Mouse.current.position.ReadValue();
 
         Ray ray = Camera.main.ScreenPointToRay(screenPosition);
@@ -46,9 +44,15 @@ public class Aim : MonoBehaviour
         aimDirection = Vector3.Normalize(worldPosition - transform.position);
         weapon.transform.forward = Vector3.Lerp(weapon.transform.forward, aimDirection, 20f * Time.deltaTime);
     }
+    private bool CanShoot() => timeSinceLastShoot > 1f / (status.fireRate / 60);
     private void OnShootInput()
     {
-        Instantiate(status.bullet, bulletSpawn.position, Quaternion.LookRotation(aimDirection, Vector3.up));
+        if (bulletSpawn != null && CanShoot())
+        {
+            Instantiate(status.bullet, bulletSpawn.position, Quaternion.LookRotation(aimDirection, Vector3.up));
+
+            timeSinceLastShoot = 0f;
+        }
     }
 
 }

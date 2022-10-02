@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -30,10 +31,21 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         Move(inputs.Player.Move.ReadValue<Vector2>());
+        Debug.Log(rb.velocity);
     }
 
     private void Move(Vector2 input)
     {
-       rb.AddForce(new Vector3(input.x, 0, input.y) * _status.moveSpeed, ForceMode.Force);
+       if(Physics.CheckBox(_groundCheckPoint.position,_groundCheckSize,Quaternion.identity,_groundLayer))
+        {
+            rb.velocity = new Vector3(input.x, 0f, input.y) * (_status.moveSpeed * 10) * Time.fixedDeltaTime;
+        }
+       else rb.velocity = new Vector3(input.x, Physics.gravity.y/5, input.y) * (_status.moveSpeed * 10) * Time.fixedDeltaTime;
+        //rb.AddForce(new Vector3(input.x, 0, input.y) * _status.moveSpeed, ForceMode.Force);
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawCube(_groundCheckPoint.position, _groundCheckSize);
     }
 }
