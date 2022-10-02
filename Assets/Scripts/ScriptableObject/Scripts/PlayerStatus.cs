@@ -8,6 +8,7 @@ using UnityEngine;
 public class PlayerStatus : Status
 {
     [NonSerialized] public int currentHp;
+    public int money;
     #region Weapon Status
     [Header("Weapon Status")]
 
@@ -19,6 +20,7 @@ public class PlayerStatus : Status
     [Header("Original Status")]
     [SerializeField] private float originBulletSpeed;
     [SerializeField] private float originFireRate;
+    private int originMoney;
     #endregion
     private void OnEnable()
     {
@@ -31,5 +33,6 @@ public class PlayerStatus : Status
         damage = originDamage;
         bulletSpeed = originBulletSpeed;
         fireRate = originFireRate;
+        originMoney = money;
     }
 }

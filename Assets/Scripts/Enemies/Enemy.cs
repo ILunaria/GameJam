@@ -54,12 +54,12 @@ public class Enemy : MonoBehaviour
     }
     private void Death()
     {
+
         isDead = true;
         
         attack.SetCanAttack(isDead);
-        spriteRenderer.color = Color.green;
         rb.velocity = Vector3.zero;
         capsuleC.enabled = false;
-        Destroy(gameObject, 3f);
+        Destroy(gameObject);
     }
 }

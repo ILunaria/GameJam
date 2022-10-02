@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if (PauseUI.isPaused) return;
         Move(inputs.Player.Move.ReadValue<Vector2>());
     }
 

@@ -24,6 +24,7 @@ public class PlayerGun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (PauseUI.isPaused) return;
         timeSinceLastShoot += Time.deltaTime;
         if (inputs.Player.Shoot.IsPressed())
         {
@@ -47,7 +48,7 @@ public class PlayerGun : MonoBehaviour
     private bool CanShoot() => timeSinceLastShoot > 1f / (status.fireRate / 60);
     private void OnShootInput()
     {
-        if (bulletSpawn != null && CanShoot())
+        if (PauseUI.isPaused == false && CanShoot())
         {
             Instantiate(status.bullet, bulletSpawn.position, Quaternion.LookRotation(aimDirection, Vector3.up));
 
