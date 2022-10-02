@@ -21,6 +21,7 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] private LayerMask enemyLayer;
     #endregion
     private Player _player;
+    private bool canAttack = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +33,7 @@ public class EnemyAttack : MonoBehaviour
     void Update()
     {
 
-        if (Physics.CheckSphere(enemyCheckPoint.position, enemyCheckSize, enemyLayer) && _player.canTakeDamage())
+        if (Physics.CheckSphere(enemyCheckPoint.position, enemyCheckSize, enemyLayer) && _player.canTakeDamage() && canAttack)
         {
             AttackDamage();
         }
@@ -40,6 +41,14 @@ public class EnemyAttack : MonoBehaviour
     private void AttackDamage()
     {
         _player.TakeDamage(_status.damage);
+    }
+
+    public void SetCanAttack(bool isdead)
+    {
+        if(isdead)
+        {
+            canAttack = false;
+        }
     }
 
     private void OnDrawGizmos()

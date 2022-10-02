@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -6,6 +7,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Player Status", menuName = "Status/Player Status", order = 2)]
 public class PlayerStatus : Status
 {
+    [NonSerialized] public int currentHp;
     #region Weapon Status
     [Header("Weapon Status")]
 

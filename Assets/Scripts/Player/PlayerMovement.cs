@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private PlayerStatus _status;
+    [SerializeField] private Transform spr;
     private Rigidbody rb;
     private PlayerInputs inputs;
     private Vector2 moveDir;
@@ -31,18 +32,34 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         Move(inputs.Player.Move.ReadValue<Vector2>());
-        Debug.Log(rb.velocity);
     }
 
     private void Move(Vector2 input)
     {
-       if(Physics.CheckBox(_groundCheckPoint.position,_groundCheckSize,Quaternion.identity,_groundLayer))
+        if(Physics.CheckBox(_groundCheckPoint.position,_groundCheckSize,Quaternion.identity,_groundLayer))
         {
             rb.velocity = new Vector3(input.x, 0f, input.y) * (_status.moveSpeed * 10) * Time.fixedDeltaTime;
         }
-       else rb.velocity = new Vector3(input.x, Physics.gravity.y/5, input.y) * (_status.moveSpeed * 10) * Time.fixedDeltaTime;
+        else rb.velocity = new Vector3(input.x, Physics.gravity.y/5, input.y) * (_status.moveSpeed * 10) * Time.fixedDeltaTime;
+
+        MoveRotation(input);
         //rb.AddForce(new Vector3(input.x, 0, input.y) * _status.moveSpeed, ForceMode.Force);
     }
+
+    private void MoveRotation(Vector2 input)
+    {
+        if (input.x < 0)
+        {
+            var rotation = Quaternion.Euler(0, 180f, 0);
+            spr.localRotation = Quaternion.Lerp(spr.localRotation,rotation,10f * Time.fixedDeltaTime);
+        }
+        else if (input.x > 0)
+        {
+            var rotation = Quaternion.Euler(0, 0f, 0);
+            spr.localRotation = Quaternion.Lerp(spr.localRotation, rotation, 10f * Time.fixedDeltaTime);
+        }
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;

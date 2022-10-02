@@ -9,12 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a40cbad457d8944b8badb99083cba6d, type: 3}
-  m_Name: Enimy
+  m_Script: {fileID: 11500000, guid: bc8c3382a733906428186939e11044c8, type: 3}
+  m_Name: Timer Global
   m_EditorClassIdentifier: 
-  maxHp: 10
-  moveSpeed: 30
-  damage: 1
-  originMaxHp: 10
-  originMoveSpeed: 30
-  originDamage: 1
+  timer: 0

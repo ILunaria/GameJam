@@ -12,13 +12,14 @@ public class Bullet : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = transform.forward * (status.bulletSpeed * 10) * Time.fixedDeltaTime;
-        Destroy(gameObject, 10f);
+        Destroy(gameObject, 5f);
     }
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Enemy")
         {
-            Destroy(other.gameObject);
+            Enemy enemy = other.gameObject.GetComponent<Enemy>();
+            enemy.TakeDamage(status.damage);
             Destroy(gameObject);
         }
     }

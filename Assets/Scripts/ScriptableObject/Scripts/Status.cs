@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "General Status", menuName = "Status/General Status", order = 1)]
@@ -7,7 +8,6 @@ public class Status : ScriptableObject
 
     [Header("In Game Status")]
     public int maxHp;
-    public int currentHp;
     public float moveSpeed;
     public int damage;
 
@@ -16,4 +16,14 @@ public class Status : ScriptableObject
     [SerializeField] protected float originMoveSpeed;
     [SerializeField] protected int originDamage;
     #endregion
+    private void OnEnable()
+    {
+        OnReset();
+    }
+    public void OnReset()
+    {
+        maxHp = originMaxHp;
+        moveSpeed = originMoveSpeed;
+        damage = originDamage;
+    }
 }
