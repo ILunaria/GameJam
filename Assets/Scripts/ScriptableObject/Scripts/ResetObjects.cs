@@ -5,8 +5,11 @@ public class ResetObjects : MonoBehaviour
 {
     [SerializeField] private PlayerStatus player;
     [SerializeField] private TimerSO timer;
+
+    private Scene scene;
     private void Start()
     {
+        scene = SceneManager.GetActiveScene();
         timer.TimerReset();
     }
     private void Update()
