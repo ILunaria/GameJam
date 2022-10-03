@@ -5,23 +5,26 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private Status _status;
+    [SerializeField] private GameObject drop;
     private int currentHp;
     private Rigidbody rb;
     private Transform target;
     private Vector3 moveDirection;
     private bool isDead = false;
 
-    private CapsuleCollider capsuleC;
+    private SphereCollider checkCollider;
     EnemyAttack attack;
     public SpriteRenderer spriteRenderer;
+    private Color baseColor;
     // Start is called before the first frame update
     void Start()
     {
         currentHp = _status.maxHp;
         rb = GetComponent<Rigidbody>();
         attack = GetComponent<EnemyAttack>();
-        capsuleC = GetComponent<CapsuleCollider>();
+        checkCollider = GetComponent<SphereCollider>();
         target = GameObject.Find("Player").transform;
+        baseColor = spriteRenderer.color;
     }
     // Update is called once per frame
     void Update()
@@ -50,16 +53,16 @@ public class Enemy : MonoBehaviour
 
         yield return new WaitForSeconds(time);
 
-        spriteRenderer.color = Color.red;
+        spriteRenderer.color = baseColor;
     }
     private void Death()
     {
 
         isDead = true;
-        
+        Instantiate(drop, transform.position, Quaternion.identity);
         attack.SetCanAttack(isDead);
         rb.velocity = Vector3.zero;
-        capsuleC.enabled = false;
+        checkCollider.enabled = false;
         Destroy(gameObject);
     }
 }

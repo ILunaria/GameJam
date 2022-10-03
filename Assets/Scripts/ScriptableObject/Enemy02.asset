@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a40cbad457d8944b8badb99083cba6d, type: 3}
-  m_Name: Enimy
+  m_Name: Enemy02
   m_EditorClassIdentifier: 
-  maxHp: 10
-  moveSpeed: 0
+  maxHp: 30
+  moveSpeed: 100
   damage: 1
-  originMaxHp: 10
-  originMoveSpeed: 0
+  originMaxHp: 30
+  originMoveSpeed: 100
   originDamage: 1

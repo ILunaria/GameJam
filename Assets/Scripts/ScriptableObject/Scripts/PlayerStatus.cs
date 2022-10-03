@@ -20,7 +20,7 @@ public class PlayerStatus : Status
     [Header("Original Status")]
     [SerializeField] private float originBulletSpeed;
     [SerializeField] private float originFireRate;
-    private int originMoney;
+    private int originMoney = 0;
     #endregion
     private void OnEnable()
     {
@@ -33,6 +33,6 @@ public class PlayerStatus : Status
         damage = originDamage;
         bulletSpeed = originBulletSpeed;
         fireRate = originFireRate;
-        originMoney = money;
+        money = originMoney;
     }
 }

@@ -24,4 +24,8 @@ public class ResetObjects : MonoBehaviour
         player.OnPlayerReset();
         SceneManager.LoadScene(0);
     }
+    public void OnQuit()
+    {
+        Application.Quit();
+    }
 }

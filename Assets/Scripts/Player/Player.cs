@@ -42,4 +42,8 @@ public class Player : MonoBehaviour
         }
         else return false;
     }
+    public void GetEXP(int valor)
+    {
+        _status.money += valor;
+    }
 }
