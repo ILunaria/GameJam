@@ -10,18 +10,18 @@ public class PauseUI : MonoBehaviour
     [SerializeField] private GameObject allGround;
     private List<GameObject> groundArray = new List<GameObject>();
     private GroundFall _fall;
-    public static bool isPaused;
+    public bool isPaused;
     private void Awake()
     {
-        CountGround();
         isPaused = false;
+        CountGround();
         inputs = new PlayerInputs();
         inputs.Player.Enable();
         inputs.Player.Pause.performed += OnPauseInput;
     }
     private void Start()
     {
-        gameObject.SetActive(false);
+        UnPauseGame();
     }
     private void OnPauseInput(InputAction.CallbackContext context)
     {

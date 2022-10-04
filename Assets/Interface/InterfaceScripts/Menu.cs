@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
+    private PlayerInputs inputs;
     private void Awake()
     {
         Cursor.visible = true;

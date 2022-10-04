@@ -24,9 +24,12 @@ public class PlayerMovement : MonoBehaviour
     #endregion
 
     private bool isIdle;
+    private PauseUI pause;
     // Start is called before the first frame update
     void Awake()
     {
+        Debug.Log("PlayerAwake");
+        pause = FindObjectOfType<PauseUI>().GetComponent<PauseUI>();
         SoundManager.Initialize();
         inputs = new PlayerInputs();
         inputs.Player.Enable();
@@ -34,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (PauseUI.isPaused) return;
+        if (pause.isPaused) return;
         Move(inputs.Player.Move.ReadValue<Vector2>());
         if (inputs.Player.Move.IsPressed())
         {

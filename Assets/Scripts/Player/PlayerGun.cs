@@ -15,16 +15,17 @@ public class PlayerGun : MonoBehaviour
     private Vector3 screenPosition;
     private Vector3 worldPosition;
     Plane plane = new Plane(Vector3.down, 0.7f);
-
+    private PauseUI pause;
     private void Start()
     {
+        pause = FindObjectOfType<PauseUI>().GetComponent<PauseUI>();
         inputs = new PlayerInputs();
         inputs.Player.Enable();
     }
     // Update is called once per frame
     void Update()
     {
-        if (PauseUI.isPaused) return;
+        if (pause.isPaused) return;
         timeSinceLastShoot += Time.deltaTime;
         if (inputs.Player.Shoot.IsPressed())
         {
@@ -48,7 +49,7 @@ public class PlayerGun : MonoBehaviour
     private bool CanShoot() => timeSinceLastShoot > 1f / (status.fireRate / 60);
     private void OnShootInput()
     {
-        if (PauseUI.isPaused == false && CanShoot())
+        if (CanShoot())
         {
             Instantiate(status.bullet, bulletSpawn.position, Quaternion.LookRotation(aimDirection, Vector3.up));
 

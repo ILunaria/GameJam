@@ -14,7 +14,6 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Time.timeScale = 1f;
         _status.currentHp = _status.maxHp;
     }
     private void Update()
