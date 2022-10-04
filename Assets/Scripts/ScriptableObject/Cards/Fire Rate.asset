@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 533bde3757d18864cbf89926742b9413, type: 3}
   m_Name: Fire Rate
   m_EditorClassIdentifier: 
-  level: 0
+  level: 3
   upName: "M\xE3os R\xE1pidas"
   upDescription: Aumenta a velocidade de disparo em 10%
   icon: {fileID: 21300000, guid: abe3eb030faac624e8ac35eb531fb179, type: 3}
-  startPrice: 50
+  startPrice: 5

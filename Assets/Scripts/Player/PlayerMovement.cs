@@ -41,7 +41,10 @@ public class PlayerMovement : MonoBehaviour
         Move(inputs.Player.Move.ReadValue<Vector2>());
         if (inputs.Player.Move.IsPressed())
         {
-            SoundManager.PlaySound(SoundManager.Sound.PlayerMove, transform.position);
+            SoundManager.PlaySound(SoundManager.Sound.PlayerMove01, transform.position);
+            SoundManager.PlaySound(SoundManager.Sound.PlayerMove02, transform.position);
+            SoundManager.PlaySound(SoundManager.Sound.PlayerMove03, transform.position);
+            SoundManager.PlaySound(SoundManager.Sound.PlayerMove04, transform.position);
         }
     }
 

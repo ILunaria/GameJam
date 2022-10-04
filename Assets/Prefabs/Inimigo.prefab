@@ -113,7 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _status: {fileID: 11400000, guid: 1cb8cbc9646196448ac47fc270d78839, type: 2}
   enemyCheckPoint: {fileID: 3898464888274697349}
-  enemyCheckSize: 0.5
+  enemyCheckSize: 0.8
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64

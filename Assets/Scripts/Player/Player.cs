@@ -25,9 +25,15 @@ public class Player : MonoBehaviour
         }
 
         else timer -= Time.deltaTime;
+
+        if(_status.currentHp <= 0)
+        {
+            spr.gameObject.SetActive(false);
+        }
     }
     public void TakeDamage(int damage)
     {
+        SoundManager.PlaySound(SoundManager.Sound.PlayerDamage);
         invulnerableTimer = invulnerableTime;
         _status.currentHp -= damage;
         spr.color = Color.blue;

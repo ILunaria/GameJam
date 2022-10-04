@@ -13,7 +13,21 @@ MonoBehaviour:
   m_Name: Sounds
   m_EditorClassIdentifier: 
   _soundArray:
-  - sound: 1
-    audioClip: {fileID: 8300000, guid: 965e0ea5e3b1395449a0d00fd618a843, type: 3}
   - sound: 0
-    audioClip: {fileID: 8300000, guid: 56508f0a895d94a48ae12c71edb446e5, type: 3}
+    audioClip: {fileID: 8300000, guid: 063c2bb5c44b2734ab93e88c776e9e83, type: 3}
+  - sound: 1
+    audioClip: {fileID: 8300000, guid: d2e0b1ece468ea645b40f7b81bcf70e9, type: 3}
+  - sound: 2
+    audioClip: {fileID: 8300000, guid: 9eae160fdb0f7f842b07514d06d2516c, type: 3}
+  - sound: 3
+    audioClip: {fileID: 8300000, guid: 5ff9cb93200cdc74d951db9ea085e16a, type: 3}
+  - sound: 4
+    audioClip: {fileID: 8300000, guid: b0a1bf9a72844184dae1b5a8f0490460, type: 3}
+  - sound: 5
+    audioClip: {fileID: 8300000, guid: 62747788a83aee846af607d5ee55a937, type: 3}
+  - sound: 6
+    audioClip: {fileID: 8300000, guid: a2c7306ecdafa254b824a8a7ab64e152, type: 3}
+  - sound: 9
+    audioClip: {fileID: 8300000, guid: fafd9b5722ca1b84ca934c89113e7212, type: 3}
+  - sound: 10
+    audioClip: {fileID: 8300000, guid: ca9a490efbf792c47a5919bd6a1790e6, type: 3}

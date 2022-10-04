@@ -4,21 +4,19 @@ using UnityEngine;
 
 public class DeathArea : MonoBehaviour
 {
+    [SerializeField] private PlayerStatus status;
     Collider _collider;
-    ResetObjects reset;
     void Start()
     {
-        reset = FindObjectOfType<ResetObjects>().GetComponent<ResetObjects>();
         _collider = GetComponent<Collider>();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         GameObject go = collision.gameObject.GetComponent<GameObject>();
-        if(collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player")
         {
-            Destroy(go);
-            reset.OnDeath();
+            status.currentHp = 0;
         }
     }
 }

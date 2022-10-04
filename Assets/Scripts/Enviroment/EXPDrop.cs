@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class EXPDrop : MonoBehaviour
 {
@@ -39,6 +37,7 @@ public class EXPDrop : MonoBehaviour
     {
         if (Physics.CheckSphere(dropCheckPoint.position, dropCheckSize, dropLayer))
         {
+            SoundManager.PlaySound(SoundManager.Sound.CollectableSound02,transform.position);
             rb.velocity = new Vector3(moveDirection.x, moveDirection.y, moveDirection.z) * moveSpeed * Time.fixedDeltaTime;
         }
     }
@@ -48,7 +47,9 @@ public class EXPDrop : MonoBehaviour
         {
             player = other.gameObject.GetComponent<Player>();
             player.GetEXP(expValor);
-            Destroy(gameObject);
+            SoundManager.PlaySound(SoundManager.Sound.CollectableSound01);
+            gameObject.SetActive(false);
+            Destroy(gameObject,1f);
         }
     }
 

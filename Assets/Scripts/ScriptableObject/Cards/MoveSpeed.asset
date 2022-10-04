@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 533bde3757d18864cbf89926742b9413, type: 3}
   m_Name: MoveSpeed
   m_EditorClassIdentifier: 
-  level: 0
+  level: 1
   upName: "P\xE9s Rapidos"
   upDescription: Aumenta a velocidade de movimento em 10%
   icon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  startPrice: 50
+  startPrice: 25

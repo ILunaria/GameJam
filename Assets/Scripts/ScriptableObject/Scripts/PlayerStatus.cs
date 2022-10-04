@@ -7,6 +7,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Player Status", menuName = "Status/Player Status", order = 2)]
 public class PlayerStatus : Status
 {
+    [NonSerialized] public bool isPlayerDead;
     [NonSerialized] public int currentHp;
     public int money;
     #region Weapon Status
@@ -39,5 +40,6 @@ public class PlayerStatus : Status
         bulletSpeed = originBulletSpeed;
         fireRate = originFireRate;
         money = originMoney;
+        isPlayerDead = false;
     }
 }
