@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour
     IEnumerator ChangeColor(float time)
     {
 
-        spriteRenderer.color = Color.white;
+        spriteRenderer.color = Color.red;
 
         yield return new WaitForSeconds(time);
 

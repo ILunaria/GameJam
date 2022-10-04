@@ -8,6 +8,8 @@ public class Bullet : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+
+        SoundManager.PlaySound(SoundManager.Sound.PlayerAttack,transform.position);
     }
     private void FixedUpdate()
     {

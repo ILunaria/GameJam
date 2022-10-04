@@ -25,6 +25,11 @@ public class PlayerStatus : Status
     private void OnEnable()
     {
         OnPlayerReset();
+        Debug.Log("Enable");
+    }
+    private void OnDisable()
+    {
+        Debug.Log("Disable");
     }
     public void OnPlayerReset()
     {

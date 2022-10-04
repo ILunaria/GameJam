@@ -22,9 +22,12 @@ public class PlayerMovement : MonoBehaviour
     [Header("Layers & Tags")]
     [SerializeField] private LayerMask _groundLayer;
     #endregion
+
+    private bool isIdle;
     // Start is called before the first frame update
     void Awake()
     {
+        SoundManager.Initialize();
         inputs = new PlayerInputs();
         inputs.Player.Enable();
         rb = GetComponent<Rigidbody>();
@@ -33,10 +36,15 @@ public class PlayerMovement : MonoBehaviour
     {
         if (PauseUI.isPaused) return;
         Move(inputs.Player.Move.ReadValue<Vector2>());
+        if (inputs.Player.Move.IsPressed())
+        {
+            SoundManager.PlaySound(SoundManager.Sound.PlayerMove, transform.position);
+        }
     }
 
     private void Move(Vector2 input)
     {
+        
         if(Physics.CheckBox(_groundCheckPoint.position,_groundCheckSize,Quaternion.identity,_groundLayer))
         {
             rb.velocity = new Vector3(input.x, 0f, input.y) * (_status.moveSpeed * 10) * Time.fixedDeltaTime;
@@ -65,5 +73,11 @@ public class PlayerMovement : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawCube(_groundCheckPoint.position, _groundCheckSize);
+    }
+
+    public Vector3 GetPosition()
+    {
+        Vector3 position = transform.position;
+        return position;
     }
 }

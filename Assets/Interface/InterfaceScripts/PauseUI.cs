@@ -1,13 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+using static UnityEditor.Progress;
 
 public class PauseUI : MonoBehaviour
 {
     private PlayerInputs inputs;
-    [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject allGround;
-    private List<GameObject> ground = new List<GameObject>();
+    private List<GameObject> groundArray = new List<GameObject>();
     private GroundFall _fall;
     public static bool isPaused;
     private void Awake()
@@ -17,6 +18,10 @@ public class PauseUI : MonoBehaviour
         inputs = new PlayerInputs();
         inputs.Player.Enable();
         inputs.Player.Pause.performed += OnPauseInput;
+    }
+    private void Start()
+    {
+        gameObject.SetActive(false);
     }
     private void OnPauseInput(InputAction.CallbackContext context)
     {
@@ -35,7 +40,7 @@ public class PauseUI : MonoBehaviour
         isPaused = true;
         Cursor.visible = true;
 
-        pauseMenu.SetActive(true);
+        gameObject.SetActive(true);
         Time.timeScale = 0f;
     }
     public void UnPauseGame()
@@ -43,18 +48,25 @@ public class PauseUI : MonoBehaviour
         isPaused = false;
         Cursor.visible = false;
         Time.timeScale = 1.0f;
-        pauseMenu.SetActive(false);
+        gameObject.SetActive(false);
     }
     private void OnFallGroundInput()
     {
 
-        int item = ground.Count - 1;
+        int maxItens = groundArray.Count - 1;
 
-        if (item > 0)
+        if (maxItens > 0)
         {
-            _fall = ground[item].GetComponent<GroundFall>();
+            int item = Random.Range(0, maxItens);
+            _fall = groundArray[item].GetComponent<GroundFall>();
             _fall.StartFall();
-            ground.Remove(ground[item]);
+            groundArray.Remove(groundArray[item]);
+        }
+        else if(maxItens == 0)
+        {
+            _fall = groundArray[maxItens].GetComponent<GroundFall>();
+            _fall.StartFall();
+            groundArray.Remove(groundArray[maxItens]);
         }
         else return;
     }
@@ -62,7 +74,11 @@ public class PauseUI : MonoBehaviour
     {
         for (int i = 0; i < allGround.transform.childCount; i++)
         {
-            ground.Add(allGround.transform.GetChild(i).gameObject);
+            groundArray.Add(allGround.transform.GetChild(i).gameObject);
         }
+    }
+    public void BackToMenu()
+    {
+        SceneManager.LoadSceneAsync(0, LoadSceneMode.Single);
     }
 }

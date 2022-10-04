@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Enimy
   m_EditorClassIdentifier: 
   maxHp: 10
-  moveSpeed: 0
+  moveSpeed: 30
   damage: 1
   originMaxHp: 10
-  originMoveSpeed: 0
+  originMoveSpeed: 30
   originDamage: 1

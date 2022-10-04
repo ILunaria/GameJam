@@ -13,10 +13,10 @@ public class Menu : MonoBehaviour
     }
     public void Jogar()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1,LoadSceneMode.Single);
     }
 
-    public void sair()
+    public void Sair()
     {
         Debug.Log("Saiu!");
         Application.Quit();

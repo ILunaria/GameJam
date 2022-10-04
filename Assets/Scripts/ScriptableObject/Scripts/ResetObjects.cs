@@ -22,7 +22,7 @@ public class ResetObjects : MonoBehaviour
     {
         timer.TimerReset();
         player.OnPlayerReset();
-        SceneManager.LoadScene(0);
+        SceneManager.LoadSceneAsync(0, LoadSceneMode.Single);
     }
     public void OnQuit()
     {
