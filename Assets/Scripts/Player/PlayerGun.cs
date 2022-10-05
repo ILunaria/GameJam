@@ -8,7 +8,7 @@ public class PlayerGun : MonoBehaviour
     [SerializeField] GameObject weapon;
     [SerializeField] private float planeHeight;
     [SerializeField] Transform bulletSpawn;
-    float timeSinceLastShoot;
+    private float timeSinceLastShoot;
     PlayerInputs inputs;
     private Vector3 aimDirection;
     private Vector3 screenPosition;

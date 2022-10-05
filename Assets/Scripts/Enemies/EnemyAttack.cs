@@ -13,14 +13,19 @@ public class EnemyAttack : MonoBehaviour
 
     [SerializeField] private Transform enemyCheckPoint;
     [SerializeField] private float enemyCheckSize;
+    [SerializeField] private Transform bulletSpawn;
     #endregion
 
     #region LAYERS & TAGS
     [Header("Layers & Tags")]
-    [SerializeField] private LayerMask enemyLayer;
+    [SerializeField] private LayerMask playerLayer;
     #endregion
     private Player _player;
     private bool canAttack = true;
+
+    private float timeSinceLastShoot;
+    private Vector3 worldPosition;
+    private Vector3 aimDirection;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,10 +36,30 @@ public class EnemyAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (Physics.CheckSphere(enemyCheckPoint.position, enemyCheckSize, enemyLayer) && _player.canTakeDamage() && canAttack)
+        if (_status.isRanged)
         {
-            AttackDamage();
+
+            timeSinceLastShoot += Time.deltaTime;
+
+            worldPosition = _player.transform.position;
+            worldPosition.y = transform.position.y;
+
+            aimDirection = Vector3.Normalize(worldPosition - transform.position);
+            transform.forward = Vector3.Lerp(transform.forward, aimDirection, 20f * Time.deltaTime);
+
+            if (Physics.CheckSphere(enemyCheckPoint.position, _status.attackRange, playerLayer))
+            {
+                _status.canShoot = true;
+                Shoot();
+            }
+            else _status.canShoot = false;
+        }
+        else
+        {
+            if(Physics.CheckSphere(enemyCheckPoint.position, enemyCheckSize, playerLayer) && _player.canTakeDamage() && canAttack)
+            {
+                AttackDamage();
+            }
         }
     } 
     private void AttackDamage()
@@ -49,10 +74,18 @@ public class EnemyAttack : MonoBehaviour
             canAttack = false;
         }
     }
-
-    private void OnDrawGizmos()
+    private bool EnemyCanShoot() => timeSinceLastShoot > 1f / (_status.fireRate / 60);
+    private void Shoot()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawSphere(enemyCheckPoint.position, enemyCheckSize);
+        if(EnemyCanShoot())
+        {
+            Instantiate(_status.bullet, bulletSpawn.position, Quaternion.LookRotation(aimDirection, Vector3.up));
+
+            timeSinceLastShoot = 0f;
+        }
+    }
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawSphere(enemyCheckPoint.position,_status.attackRange);
     }
 }

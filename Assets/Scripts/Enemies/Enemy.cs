@@ -36,7 +36,16 @@ public class Enemy : MonoBehaviour
     private void FixedUpdate()
     {
         if(!isDead)
-        rb.velocity = new Vector3(moveDirection.x, 0, moveDirection.z) * _status.moveSpeed * Time.fixedDeltaTime;
+        {
+            if(_status.canShoot)
+            {
+                rb.velocity = Vector3.zero;
+            }
+            else
+            {
+                rb.velocity = new Vector3(moveDirection.x, 0, moveDirection.z) * _status.moveSpeed * Time.fixedDeltaTime;
+            }
+        }
     }
     public void TakeDamage(int Damage)
     {
