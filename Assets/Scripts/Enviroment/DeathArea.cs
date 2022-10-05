@@ -4,19 +4,31 @@ using UnityEngine;
 
 public class DeathArea : MonoBehaviour
 {
-    [SerializeField] private PlayerStatus status;
-    Collider _collider;
-    void Start()
-    {
-        _collider = GetComponent<Collider>();
-    }
 
-    private void OnTriggerEnter(Collider collision)
+    #region CHECK PARAMETERS
+    //Set all of these up in the inspector
+    [Header("Checks")]
+
+    [SerializeField] private Transform areaCheckPoint;
+    [SerializeField] private Vector3 areaCheckSize;
+    #endregion
+
+    #region LAYERS & TAGS
+    [Header("Layers & Tags")]
+    [SerializeField] private LayerMask PlayerLayer;
+    #endregion
+
+    // Update is called once per frame
+    void Update()
     {
-        GameObject go = collision.gameObject.GetComponent<GameObject>();
-        if (collision.gameObject.tag == "Player")
+
+        if (Physics.CheckBox(areaCheckPoint.position, areaCheckSize, Quaternion.identity ,PlayerLayer))
         {
-            status.currentHp = 0;
+            PlayerDeath.OnPlayerDeath();
         }
+    }
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawCube(areaCheckPoint.position, areaCheckSize);
     }
 }

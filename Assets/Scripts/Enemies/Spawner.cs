@@ -8,6 +8,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private float timeToMoreEnemies;
     [SerializeField] private float range;
     [SerializeField] private int maxEnemies;
+    [SerializeField] private float enemyHeight;
     private int minEnemies;
     private int enemiesNumber;
 
@@ -15,7 +16,7 @@ public class Spawner : MonoBehaviour
 
     private void Start()
     {
-        transform.position = new Vector3(Random.Range(-20, 20), 0.7f, Random.Range(-20, 20));
+        transform.position = new Vector3(Random.Range(-20, 20), enemyHeight, Random.Range(-20, 20));
         StartCoroutine(SpawnRate());
         StartCoroutine(MoreEnemy());
     }
@@ -26,7 +27,7 @@ public class Spawner : MonoBehaviour
         enemiesNumber = Random.Range(minEnemies, maxEnemies);
         for(int i = 0; i < enemiesNumber;i++)
         {
-            var position = new Vector3(Random.Range(transform.position.x - range, transform.position.x + range), transform.position.y, Random.Range(transform.position.z - range, transform.position.z + range));
+            var position = new Vector3(Random.Range(transform.position.x - range, transform.position.x + range), enemyHeight, Random.Range(transform.position.z - range, transform.position.z + range));
             Instantiate(enemy, position, Quaternion.identity);
         }
     }

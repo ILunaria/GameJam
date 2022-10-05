@@ -5,30 +5,30 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private PlayerStatus _status;
-
-    [SerializeField] private SpriteRenderer spr;
     [SerializeField] private float invulnerableTime = 0;
 
+    [SerializeField] private Renderer render;
+
+    private HpBar hp;
     private float invulnerableTimer = 0;
     private float timer = 0;
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        _status.currentHp = _status.maxHp;
+        hp = FindObjectOfType<HpBar>().GetComponent<HpBar>();
     }
     private void Update()
     {
         invulnerableTimer -= Time.deltaTime;
         if(timer <= 0)
         {
-            spr.color = Color.white;
+            render.material.SetColor("_EmissionColor", Color.white * 0f);
         }
 
         else timer -= Time.deltaTime;
 
         if(_status.currentHp <= 0)
         {
-            spr.gameObject.SetActive(false);
+            PlayerDeath.OnPlayerDeath();
         }
     }
     public void TakeDamage(int damage)
@@ -36,8 +36,9 @@ public class Player : MonoBehaviour
         SoundManager.PlaySound(SoundManager.Sound.PlayerDamage);
         invulnerableTimer = invulnerableTime;
         _status.currentHp -= damage;
-        spr.color = Color.blue;
+        render.material.SetColor("_EmissionColor", Color.red * 1f);
         timer = 1f;
+        hp.ShowHp();
 
     }
     public bool canTakeDamage()

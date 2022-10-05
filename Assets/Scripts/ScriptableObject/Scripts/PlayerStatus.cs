@@ -7,6 +7,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Player Status", menuName = "Status/Player Status", order = 2)]
 public class PlayerStatus : Status
 {
+    public float playerGravity;
     [NonSerialized] public bool isPlayerDead;
     [NonSerialized] public int currentHp;
     public int money;
@@ -35,6 +36,7 @@ public class PlayerStatus : Status
     public void OnPlayerReset()
     {
         maxHp = originMaxHp;
+        currentHp = originMaxHp;
         moveSpeed = originMoveSpeed;
         damage = originDamage;
         bulletSpeed = originBulletSpeed;

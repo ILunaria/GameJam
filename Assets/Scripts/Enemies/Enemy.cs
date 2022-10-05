@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -19,11 +18,12 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        transform.position = new Vector3(transform.position.x, 0.7f, transform.position.z);
         currentHp = _status.maxHp;
         rb = GetComponent<Rigidbody>();
         attack = GetComponent<EnemyAttack>();
         checkCollider = GetComponent<SphereCollider>();
-        target = GameObject.Find("Player").transform;
+        target = GameObject.Find("PlayerRoot").transform;
         baseColor = spriteRenderer.color;
     }
     // Update is called once per frame
@@ -36,7 +36,7 @@ public class Enemy : MonoBehaviour
     private void FixedUpdate()
     {
         if(!isDead)
-        rb.velocity = new Vector3(moveDirection.x, moveDirection.y, moveDirection.z) * _status.moveSpeed * Time.fixedDeltaTime;
+        rb.velocity = new Vector3(moveDirection.x, 0, moveDirection.z) * _status.moveSpeed * Time.fixedDeltaTime;
     }
     public void TakeDamage(int Damage)
     {

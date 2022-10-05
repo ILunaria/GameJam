@@ -8,16 +8,18 @@ public class PlayerGun : MonoBehaviour
 
     [SerializeField] private PlayerStatus status;
     [SerializeField] GameObject weapon;
+    [SerializeField] private float planeHeight;
     [SerializeField] Transform bulletSpawn;
     float timeSinceLastShoot;
     PlayerInputs inputs;
     private Vector3 aimDirection;
     private Vector3 screenPosition;
     private Vector3 worldPosition;
-    Plane plane = new Plane(Vector3.down, 0.7f);
+    private Plane plane;
     [SerializeField] private PauseUI pause;
     private void Start()
     {
+        plane = new Plane(Vector3.down, weapon.transform.position.y);
         inputs = new PlayerInputs();
         inputs.Player.Enable();
     }
@@ -41,8 +43,10 @@ public class PlayerGun : MonoBehaviour
 
         worldPosition.y = weapon.transform.position.y;
 
-        aimDirection = Vector3.Normalize(worldPosition - transform.position);
+        aimDirection = Vector3.Normalize(worldPosition - weapon.transform.position);
+
         weapon.transform.forward = Vector3.Lerp(weapon.transform.forward, aimDirection, 20f * Time.deltaTime);
+
     }
     private bool CanShoot() => timeSinceLastShoot > 1f / (status.fireRate / 60);
     private void OnShootInput()

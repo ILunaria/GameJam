@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
         
         if(Physics.CheckBox(_groundCheckPoint.position,_groundCheckSize,Quaternion.identity,_groundLayer))
         {
-            rb.velocity = new Vector3(input.x, 0f, input.y) * (_status.moveSpeed * 10) * Time.fixedDeltaTime;
+            rb.velocity = new Vector3(input.x, 0, input.y) * (_status.moveSpeed * 10) * Time.fixedDeltaTime;
         }
         else rb.velocity = new Vector3(input.x, Physics.gravity.y/5, input.y) * (_status.moveSpeed * 10) * Time.fixedDeltaTime;
 
@@ -65,13 +65,13 @@ public class PlayerMovement : MonoBehaviour
     {
         if (input.x < 0)
         {
-            var rotation = Quaternion.Euler(0, 180f, 0);
-            spr.localRotation = Quaternion.Lerp(spr.localRotation,rotation,10f * Time.fixedDeltaTime);
+            var rotation = Quaternion.Euler(0, 180f, 0f);
+            spr.localRotation = Quaternion.Lerp(spr.localRotation,rotation, 20f * Time.fixedDeltaTime);
         }
         else if (input.x > 0)
         {
-            var rotation = Quaternion.Euler(0, 0f, 0);
-            spr.localRotation = Quaternion.Lerp(spr.localRotation, rotation, 10f * Time.fixedDeltaTime);
+            var rotation = Quaternion.Euler(0, 0, 0);
+            spr.localRotation = Quaternion.Lerp(spr.localRotation, rotation, 20f * Time.fixedDeltaTime);
         }
     }
 

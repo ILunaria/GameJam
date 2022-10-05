@@ -24,7 +24,7 @@ public class EXPDrop : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        target = GameObject.Find("Player").transform;
+        target = GameObject.Find("PlayerRoot").transform;
     }
 
     // Update is called once per frame

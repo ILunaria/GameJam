@@ -33,8 +33,11 @@ public class PlayerUpgrade : MonoBehaviour
     private float baseSpeed;
     private float baseFireRate;
 
+    private HpBar _hp;
+
     private void Awake()
     {
+        _hp = FindObjectOfType<HpBar>().GetComponent<HpBar>();
         baseSpeed = _status.moveSpeed;
         baseFireRate = _status.fireRate;
     }
@@ -63,7 +66,7 @@ public class PlayerUpgrade : MonoBehaviour
             _status.currentHp += hp;
             _status.money -= price;
             _ui.UpCard(priceMultiplier);
-
+            _hp.ShowHp();
             hpLv += 1;
         }
     }
