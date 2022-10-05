@@ -383,6 +383,37 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6719421969010618176, guid: df7eb55e4d2832e49977ae2ba0a3bacc,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3015efccd236d274588d367c84bcf7e7,
+        type: 3}
+    - target: {fileID: 6719421969010618177, guid: df7eb55e4d2832e49977ae2ba0a3bacc,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.936881
+      objectReference: {fileID: 0}
+    - target: {fileID: 6719421969010618177, guid: df7eb55e4d2832e49977ae2ba0a3bacc,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.936881
+      objectReference: {fileID: 0}
+    - target: {fileID: 6719421969010618177, guid: df7eb55e4d2832e49977ae2ba0a3bacc,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.936881
+      objectReference: {fileID: 0}
+    - target: {fileID: 6719421969010618177, guid: df7eb55e4d2832e49977ae2ba0a3bacc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6719421969010618177, guid: df7eb55e4d2832e49977ae2ba0a3bacc,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6719421969010618177, guid: df7eb55e4d2832e49977ae2ba0a3bacc,
         type: 3}
       propertyPath: m_LocalRotation.w

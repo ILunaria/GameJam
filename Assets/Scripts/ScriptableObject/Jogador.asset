@@ -16,11 +16,11 @@ MonoBehaviour:
   moveSpeed: 20
   damage: 2
   originMaxHp: 3
-  originMoveSpeed: 20
+  originMoveSpeed: 30
   originDamage: 2
   money: 0
   bullet: {fileID: 381475577117926661, guid: 06d36f4bcd091964cb7e4b5bd1e5b5ad, type: 3}
   bulletSpeed: 50
   fireRate: 100
   originBulletSpeed: 50
-  originFireRate: 100
+  originFireRate: 150
