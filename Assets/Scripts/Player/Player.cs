@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     [SerializeField] private PlayerStatus _status;
     [SerializeField] private float invulnerableTime = 0;
 
-    [SerializeField] private Renderer render;
+    [SerializeField] private SpriteRenderer render;
 
     private HpBar hp;
     private float invulnerableTimer = 0;
@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
         invulnerableTimer -= Time.deltaTime;
         if(timer <= 0)
         {
-            render.material.SetColor("_EmissionColor", Color.white * 0f);
+            render.color = Color.white;
         }
 
         else timer -= Time.deltaTime;
@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
         SoundManager.PlaySound(SoundManager.Sound.PlayerDamage);
         invulnerableTimer = invulnerableTime;
         _status.currentHp -= damage;
-        render.material.SetColor("_EmissionColor", Color.red * 1f);
+        render.color = Color.red;
         timer = 1f;
         hp.ShowHp();
 

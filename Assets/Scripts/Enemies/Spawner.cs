@@ -16,7 +16,6 @@ public class Spawner : MonoBehaviour
 
     private void Start()
     {
-        transform.position = new Vector3(Random.Range(-20, 20), enemyHeight, Random.Range(-20, 20));
         StartCoroutine(SpawnRate());
         StartCoroutine(MoreEnemy());
     }

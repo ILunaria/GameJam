@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
-    [SerializeField] private Status _status;
+    [SerializeField] private EnemySO _status;
 
     #region CHECK PARAMETERS
     //Set all of these up in the inspector

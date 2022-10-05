@@ -1,7 +1,5 @@
-using UnityEditor;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "General Status", menuName = "Status/General Status", order = 1)]
 public class Status : ScriptableObject
 {
     #region Generic Status

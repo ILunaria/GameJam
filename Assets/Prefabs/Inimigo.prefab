@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80669276f5fbfd14a9fc2e0297c9fb9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _status: {fileID: 11400000, guid: 1cb8cbc9646196448ac47fc270d78839, type: 2}
+  _status: {fileID: 11400000, guid: c5966f2d97792e54098d331a19782cb3, type: 2}
   drop: {fileID: 152500415587816665, guid: dcabe43b07ed0ee41ae806b8f8aeab83, type: 3}
   spriteRenderer: {fileID: 7044316878005452276}
 --- !u!114 &260181676809981402
@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74c3948ffbc2a1046bbb40adb96fad46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _status: {fileID: 11400000, guid: 1cb8cbc9646196448ac47fc270d78839, type: 2}
+  _status: {fileID: 11400000, guid: c5966f2d97792e54098d331a19782cb3, type: 2}
   enemyCheckPoint: {fileID: 3898464888274697349}
   enemyCheckSize: 0.8
   enemyLayer:

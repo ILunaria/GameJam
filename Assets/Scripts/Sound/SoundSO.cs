@@ -16,18 +16,26 @@ public class SoundSO : ScriptableObject
         public SoundManager.Sound sound;
         public AudioClip audioClip;
     }
-
+    private void Awake()
+    {
+        SetSounds();
+    }
     private void OnValidate()
     {
         Debug.Log("Validate");
-        soundArray = _soundArray;
+        SetSounds();
     }
     private void OnEnable()
     {
         Debug.Log("Enable");
+        SetSounds();
     }
     private void OnDisable()
     {
         Debug.Log("Disable");
+    }
+    private void SetSounds()
+    {
+        soundArray = _soundArray;
     }
 }

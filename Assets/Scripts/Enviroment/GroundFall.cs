@@ -1,13 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GroundFall : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private Animator anim;
+
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
     public void StartFall()
     {
-        Debug.Log(gameObject.name + " est? caindo");
+        anim.SetBool("toPlay", true);
+    }
+    public void EndFall()
+    {
         Destroy(gameObject);
     }
 }

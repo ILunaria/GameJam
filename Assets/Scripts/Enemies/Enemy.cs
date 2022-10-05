@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private Status _status;
+    [SerializeField] private EnemySO _status;
     [SerializeField] private GameObject drop;
     private int currentHp;
     private Rigidbody rb;
