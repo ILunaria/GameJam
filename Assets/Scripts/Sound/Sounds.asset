@@ -22,7 +22,7 @@ MonoBehaviour:
   - sound: 3
     audioClip: {fileID: 8300000, guid: 5ff9cb93200cdc74d951db9ea085e16a, type: 3}
   - sound: 4
-    audioClip: {fileID: 8300000, guid: b0a1bf9a72844184dae1b5a8f0490460, type: 3}
+    audioClip: {fileID: 8300000, guid: d8cb7e60a89e9b64989407cd2e33a5c0, type: 3}
   - sound: 5
     audioClip: {fileID: 8300000, guid: 62747788a83aee846af607d5ee55a937, type: 3}
   - sound: 6

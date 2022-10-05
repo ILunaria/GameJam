@@ -52,7 +52,7 @@ public static class SoundManager
             soundGO.transform.position = position;
             AudioSource audio = soundGO.AddComponent<AudioSource>();
             audio.clip = GetAudioClip(sound);
-            audio.volume = 0.5f;
+            audio.volume = 0.3f;
             audio.maxDistance = 20f;
             audio.spatialBlend = 1f;
             audio.rolloffMode = AudioRolloffMode.Linear;

@@ -124,6 +124,17 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""382f217f-c942-4524-a573-54babe8750a1"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""a66ad130-f05c-4969-9ab2-185ac231993a"",
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
