@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Damage
   m_EditorClassIdentifier: 
   level: 0
-  upName: Dano
+  upName: "Bra\xE7o forte"
   upDescription: Aumento de +2 no dano da Arma
-  icon: {fileID: 21300000, guid: 48299dd62a6c872408dfb22bcefe1ba9, type: 3}
+  icon: {fileID: 21300000, guid: 4f08a18434d46a543a9a5387f145947e, type: 3}
   startPrice: 10

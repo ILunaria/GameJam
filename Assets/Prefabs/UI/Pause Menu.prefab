@@ -852,12 +852,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 10
-    m_Right: 10
+    m_Left: 50
+    m_Right: 50
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 3
-  m_Spacing: 10
+  m_Spacing: 100
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -1110,7 +1110,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 8062271117144950103}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.9919485
+  m_Size: 0.77386934
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1264,6 +1264,26 @@ PrefabInstance:
       value: PlayerUpgrade, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5143598705845247260, guid: 146de6e9ad4134246b90505ea6abad65,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456069649249814487, guid: 146de6e9ad4134246b90505ea6abad65,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5715852419395053575}
+    - target: {fileID: 8456069649249814487, guid: 146de6e9ad4134246b90505ea6abad65,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DamageUpgrade
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456069649249814487, guid: 146de6e9ad4134246b90505ea6abad65,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerUpgrade, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456069649249814487, guid: 146de6e9ad4134246b90505ea6abad65,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
@@ -1429,6 +1449,26 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 8456069649249814487, guid: 146de6e9ad4134246b90505ea6abad65,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5715852419395053575}
+    - target: {fileID: 8456069649249814487, guid: 146de6e9ad4134246b90505ea6abad65,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MoveSpeedUpgrade
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456069649249814487, guid: 146de6e9ad4134246b90505ea6abad65,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerUpgrade, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456069649249814487, guid: 146de6e9ad4134246b90505ea6abad65,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 146de6e9ad4134246b90505ea6abad65, type: 3}
 --- !u!224 &5143598706273889985 stripped
@@ -1590,6 +1630,26 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 8456069649249814487, guid: 146de6e9ad4134246b90505ea6abad65,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5715852419395053575}
+    - target: {fileID: 8456069649249814487, guid: 146de6e9ad4134246b90505ea6abad65,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: FireRateUpgrade
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456069649249814487, guid: 146de6e9ad4134246b90505ea6abad65,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerUpgrade, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456069649249814487, guid: 146de6e9ad4134246b90505ea6abad65,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 146de6e9ad4134246b90505ea6abad65, type: 3}
 --- !u!224 &5143598704288645867 stripped
@@ -1736,6 +1796,26 @@ PrefabInstance:
       value: PlayerUpgrade, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5143598705845247260, guid: 146de6e9ad4134246b90505ea6abad65,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456069649249814487, guid: 146de6e9ad4134246b90505ea6abad65,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5715852419395053575}
+    - target: {fileID: 8456069649249814487, guid: 146de6e9ad4134246b90505ea6abad65,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: HpUpgrade
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456069649249814487, guid: 146de6e9ad4134246b90505ea6abad65,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerUpgrade, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456069649249814487, guid: 146de6e9ad4134246b90505ea6abad65,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine

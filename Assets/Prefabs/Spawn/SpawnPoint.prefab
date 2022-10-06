@@ -46,7 +46,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5edd5c7d13cc4e44e9276ce28e5ac96a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 7044316876949918100, guid: c16689845fe521f4d8532961db90ccb8, type: 3}
+  enemies:
+  - {fileID: 7044316876949918100, guid: c16689845fe521f4d8532961db90ccb8, type: 3}
+  - {fileID: 7044316876949918100, guid: c16689845fe521f4d8532961db90ccb8, type: 3}
+  - {fileID: 7044316876949918100, guid: c16689845fe521f4d8532961db90ccb8, type: 3}
+  - {fileID: 7044316876949918100, guid: c16689845fe521f4d8532961db90ccb8, type: 3}
+  - {fileID: 7044316876949918100, guid: c16689845fe521f4d8532961db90ccb8, type: 3}
+  - {fileID: 7044316876949918100, guid: c16689845fe521f4d8532961db90ccb8, type: 3}
+  - {fileID: 1448104143128355464, guid: 50bb42093d459d5459b015ce7d9372fb, type: 3}
+  - {fileID: 1448104143128355464, guid: 50bb42093d459d5459b015ce7d9372fb, type: 3}
+  - {fileID: 1448104143128355464, guid: 50bb42093d459d5459b015ce7d9372fb, type: 3}
+  - {fileID: 1448104143128355464, guid: 50bb42093d459d5459b015ce7d9372fb, type: 3}
   spawnDelay: 5
   timeToMoreEnemies: 60
   range: 2

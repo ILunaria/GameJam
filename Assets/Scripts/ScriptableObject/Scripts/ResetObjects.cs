@@ -13,8 +13,6 @@ public class ResetObjects : MonoBehaviour
     private void Update()
     {
         if (player.isPlayerDead) return;
-        timer.floatTimer += Time.deltaTime;
-        timer.intTimer = Mathf.FloorToInt(timer.floatTimer);
         if(player.currentHp <= 0)
         {
             OnDeath();

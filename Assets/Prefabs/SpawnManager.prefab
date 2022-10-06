@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7688611294104324871}
-  - component: {fileID: 5687613917733353103}
+  - component: {fileID: 3691236775804838700}
   m_Layer: 0
   m_Name: SpawnManager
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5687613917733353103
+--- !u!114 &3691236775804838700
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,10 +41,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7688611294104324870}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d50df8e7a096fe14785ad1442a909e50, type: 3}
+  m_Script: {fileID: 11500000, guid: a9d808bf4b405e74ab7529cf833a9004, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  envObjects:
-  - {fileID: 4948739303860035168, guid: 95300d0ca1d633a4bbcd51f4727ed35c, type: 3}
+  spawnPoint: {fileID: 4948739303860035168, guid: 95300d0ca1d633a4bbcd51f4727ed35c,
+    type: 3}
   maxObjs: 4
   range: 20

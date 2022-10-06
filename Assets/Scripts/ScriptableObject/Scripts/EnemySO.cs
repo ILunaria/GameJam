@@ -16,6 +16,8 @@ public class EnemySO : Status
     public GameObject bullet;
     public float bulletSpeed;
 
+    [Header("Boss Settings")]
+    public bool isBoss;
     private void OnEnable()
     {
         canSpawn = false;

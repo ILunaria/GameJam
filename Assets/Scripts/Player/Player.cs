@@ -7,28 +7,25 @@ public class Player : MonoBehaviour
     [SerializeField] private PlayerStatus _status;
     [SerializeField] private float invulnerableTime = 0;
 
-    [SerializeField] private SpriteRenderer render;
-
+    [SerializeField] private SpriteRenderer spr;
+    private AudioSource audioSource;
+    private Animator animator;
     private HpBar hp;
     private float invulnerableTimer = 0;
-    private float timer = 0;
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();
         hp = FindObjectOfType<HpBar>().GetComponent<HpBar>();
     }
     private void Update()
     {
         invulnerableTimer -= Time.deltaTime;
-        if(timer <= 0)
-        {
-            render.color = Color.white;
-        }
-
-        else timer -= Time.deltaTime;
 
         if(_status.currentHp <= 0)
         {
-            PlayerDeath.OnPlayerDeath();
+            invulnerableTime = 3f;
+            animator.SetBool("isDead", true);
         }
     }
     public void TakeDamage(int damage)
@@ -36,10 +33,8 @@ public class Player : MonoBehaviour
         SoundManager.PlaySound(SoundManager.Sound.PlayerDamage);
         invulnerableTimer = invulnerableTime;
         _status.currentHp -= damage;
-        render.color = Color.red;
-        timer = 1f;
         hp.ShowHp();
-
+        animator.SetTrigger("TakeDamage");
     }
     public bool canTakeDamage()
     {
@@ -52,5 +47,14 @@ public class Player : MonoBehaviour
     public void GetEXP(int valor)
     {
         _status.money += valor;
+    }
+    public void Death()
+    {
+        gameObject.SetActive(false);
+        PlayerDeath.OnPlayerDeath();
+    }
+    public void PlayDeathSound()
+    {
+        audioSource.Play();
     }
 }

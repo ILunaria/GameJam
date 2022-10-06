@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be5e4704a78c2d14cafc3eeade66702d, type: 3}
+  m_Name: Boss
+  m_EditorClassIdentifier: 
+  maxHp: 5
+  moveSpeed: 50
+  damage: 2
+  originMaxHp: 5
+  originMoveSpeed: 50
+  originDamage: 2
+  canSpawn: 0
+  isRanged: 0
+  canShoot: 0
+  attackRange: 0
+  fireRate: 0
+  bullet: {fileID: 919132149155446097, guid: efa106fbaaeeb454c8f5c61c3aa8f279, type: 3}
+  bulletSpeed: 0
+  isBoss: 1

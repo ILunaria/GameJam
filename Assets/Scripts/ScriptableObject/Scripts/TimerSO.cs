@@ -5,12 +5,14 @@ using UnityEngine;
 [CreateAssetMenu]
 public class TimerSO : ScriptableObject
 {
-    public float floatTimer;
-    public int intTimer;
+    public float currentTime;
 
+    private void OnEnable()
+    {
+        TimerReset();
+    }
     public void TimerReset()
     {
-        floatTimer = 0;
-        intTimer = 0;
+        currentTime = 0;
     }
 }

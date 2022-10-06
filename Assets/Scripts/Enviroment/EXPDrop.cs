@@ -37,7 +37,7 @@ public class EXPDrop : MonoBehaviour
     {
         if (Physics.CheckSphere(dropCheckPoint.position, dropCheckSize, dropLayer))
         {
-            //SoundManager.PlaySound(SoundManager.Sound.CollectableSound02,transform.position);
+            SoundManager.PlaySound(SoundManager.Sound.CollectableSound02,transform.position);
             rb.velocity = new Vector3(moveDirection.x, moveDirection.y, moveDirection.z) * moveSpeed * Time.fixedDeltaTime;
         }
     }
@@ -47,7 +47,7 @@ public class EXPDrop : MonoBehaviour
         {
             player = other.gameObject.GetComponent<Player>();
             player.GetEXP(expValor);
-            //SoundManager.PlaySound(SoundManager.Sound.CollectableSound01);
+            SoundManager.PlaySound(SoundManager.Sound.CollectableSound01);
             gameObject.SetActive(false);
             Destroy(gameObject,1f);
         }

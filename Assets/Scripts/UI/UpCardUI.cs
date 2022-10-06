@@ -9,6 +9,7 @@ public class UpCardUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI desc;
     [SerializeField] private Image icon;
     [SerializeField] private TextMeshProUGUI price;
+    [SerializeField] private TextMeshProUGUI _name;
     private void Awake()
     {
         setCard();
@@ -19,6 +20,7 @@ public class UpCardUI : MonoBehaviour
         lv.text = data.level.ToString();
         desc.text = data.upDescription;
         icon.sprite = data.icon;
+        _name.text = data.upName;
     }
     public void UpCard(int multiplier)
     {

@@ -5,6 +5,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private EnemySO _status;
     [SerializeField] private GameObject drop;
+    private SoundPitchChanger _pitchChanger;
     private int currentHp;
     private Rigidbody rb;
     private Transform target;
@@ -18,6 +19,11 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _pitchChanger = FindObjectOfType<SoundPitchChanger>().GetComponent<SoundPitchChanger>();
+        if(_status.isBoss)
+        {
+            _pitchChanger.hasBoss = true;
+        }
         transform.position = new Vector3(transform.position.x, 0.7f, transform.position.z);
         currentHp = _status.maxHp;
         rb = GetComponent<Rigidbody>();
@@ -66,7 +72,10 @@ public class Enemy : MonoBehaviour
     }
     private void Death()
     {
-
+        if(_status.isBoss)
+        {
+            _pitchChanger.hasBoss = false;
+        }
         isDead = true;
         Instantiate(drop, transform.position, Quaternion.identity);
         attack.SetCanAttack(isDead);

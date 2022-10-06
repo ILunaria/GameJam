@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemyAttack : MonoBehaviour
 {
     [SerializeField] private EnemySO _status;
+    [SerializeField] private GameObject _weapon;
 
     #region CHECK PARAMETERS
     //Set all of these up in the inspector
@@ -14,11 +15,11 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] private Transform enemyCheckPoint;
     [SerializeField] private float enemyCheckSize;
     [SerializeField] private Transform bulletSpawn;
+    [SerializeField] private LayerMask playerLayer;
     #endregion
 
     #region LAYERS & TAGS
     [Header("Layers & Tags")]
-    [SerializeField] private LayerMask playerLayer;
     #endregion
     private Player _player;
     private bool canAttack = true;
@@ -45,7 +46,7 @@ public class EnemyAttack : MonoBehaviour
             worldPosition.y = transform.position.y;
 
             aimDirection = Vector3.Normalize(worldPosition - transform.position);
-            transform.forward = Vector3.Lerp(transform.forward, aimDirection, 20f * Time.deltaTime);
+            _weapon.transform.forward = Vector3.Lerp(transform.forward, aimDirection, 20f * Time.deltaTime);
 
             if (Physics.CheckSphere(enemyCheckPoint.position, _status.attackRange, playerLayer))
             {

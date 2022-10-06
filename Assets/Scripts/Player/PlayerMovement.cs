@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Windows;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -21,9 +22,8 @@ public class PlayerMovement : MonoBehaviour
     #region LAYERS & TAGS
     [Header("Layers & Tags")]
     [SerializeField] private LayerMask _groundLayer;
+    [SerializeField] private LayerMask _voidLayer;
     #endregion
-
-    private bool isIdle;
     private PauseUI pause;
     // Start is called before the first frame update
     void Awake()
@@ -38,6 +38,11 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         if (pause.isPaused) return;
+        if (Physics.CheckBox(_groundCheckPoint.position, _groundCheckSize, Quaternion.identity, _voidLayer))
+        {
+            _status.currentHp = 0;
+            return;
+        }
         Move(inputs.Player.Move.ReadValue<Vector2>());
         if (inputs.Player.Move.IsPressed())
         {
