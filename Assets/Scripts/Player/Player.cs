@@ -7,7 +7,6 @@ public class Player : MonoBehaviour
     [SerializeField] private PlayerStatus _status;
     [SerializeField] private float invulnerableTime = 0;
 
-    [SerializeField] private SpriteRenderer spr;
     private AudioSource audioSource;
     private Animator animator;
     private HpBar hp;

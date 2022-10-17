@@ -106,7 +106,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4616dab2d37704844937a8a4b5114f32, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 4.86, y: 3.3}
@@ -246,7 +246,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _status: {fileID: 11400000, guid: c5966f2d97792e54098d331a19782cb3, type: 2}
   drop: {fileID: 152500415587816665, guid: dcabe43b07ed0ee41ae806b8f8aeab83, type: 3}
-  spriteRenderer: {fileID: 6699175555623699082}
+  rotate: {fileID: 3573529590223407432}
+  spriteRender: {fileID: 6699175555623699082}
 --- !u!114 &260181676809981402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,6 +261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _status: {fileID: 11400000, guid: c5966f2d97792e54098d331a19782cb3, type: 2}
+  _weapon: {fileID: 6671602467770735616}
   enemyCheckPoint: {fileID: 3898464888274697349}
   enemyCheckSize: 1
   bulletSpawn: {fileID: 3219351105974629650}

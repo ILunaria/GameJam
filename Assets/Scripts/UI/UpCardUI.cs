@@ -22,10 +22,12 @@ public class UpCardUI : MonoBehaviour
         icon.sprite = data.icon;
         _name.text = data.upName;
     }
-    public void UpCard(int multiplier)
+    public void UpCard(float multiplier)
     {
         data.level++;
-        data.price = data.price * multiplier;
+        float newPrice = data.price * multiplier;
+
+        data.price = Mathf.FloorToInt(newPrice);
         setCard();
     }
     public int GetPrice()

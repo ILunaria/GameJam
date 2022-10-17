@@ -2,10 +2,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseUI : MonoBehaviour
 {
     private PlayerInputs inputs;
+    [SerializeField] private Image aim;
     [SerializeField] private GameObject allGround;
     private List<GameObject> groundArray = new List<GameObject>();
     private GroundFall _fall;
@@ -38,6 +40,7 @@ public class PauseUI : MonoBehaviour
     {
         isPaused = true;
         Cursor.visible = true;
+        aim.enabled = false;
 
         gameObject.SetActive(true);
         Time.timeScale = 0f;
@@ -46,6 +49,7 @@ public class PauseUI : MonoBehaviour
     {
         isPaused = false;
         Cursor.visible = false;
+        aim.enabled = true;
         Time.timeScale = 1.0f;
         gameObject.SetActive(false);
     }

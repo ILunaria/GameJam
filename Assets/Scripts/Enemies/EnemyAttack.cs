@@ -27,11 +27,28 @@ public class EnemyAttack : MonoBehaviour
     private float timeSinceLastShoot;
     private Vector3 worldPosition;
     private Vector3 aimDirection;
+
+    private float currentFireRate;
+    private int currentDamage;
+    private GameObject bullet;
     // Start is called before the first frame update
     void Start()
     {
         _player = FindObjectOfType<Player>().GetComponent<Player>();
-
+        currentDamage = _status.damage;
+        currentFireRate = _status.fireRate;
+        if(_status.isRanged)
+        {
+            if (_status.level >= 10)
+            {
+                bullet = _status.bullet03;
+            }
+            if (_status.level >= 5 && _status.level < 10)
+            {
+                bullet = _status.bullet02;
+            }
+            else bullet = _status.bullet01;
+        }
     }
 
     // Update is called once per frame
@@ -65,7 +82,7 @@ public class EnemyAttack : MonoBehaviour
     } 
     private void AttackDamage()
     {
-        _player.TakeDamage(_status.damage);
+        _player.TakeDamage(currentDamage);
     }
 
     public void SetCanAttack(bool isdead)
@@ -75,12 +92,12 @@ public class EnemyAttack : MonoBehaviour
             canAttack = false;
         }
     }
-    private bool EnemyCanShoot() => timeSinceLastShoot > 1f / (_status.fireRate / 60);
+    private bool EnemyCanShoot() => timeSinceLastShoot > 1f / (currentFireRate / 60);
     private void Shoot()
     {
         if(EnemyCanShoot())
         {
-            Instantiate(_status.bullet, bulletSpawn.position, Quaternion.LookRotation(aimDirection, Vector3.up));
+            Instantiate(bullet, bulletSpawn.position, Quaternion.LookRotation(aimDirection, Vector3.up));
 
             timeSinceLastShoot = 0f;
         }
@@ -88,5 +105,6 @@ public class EnemyAttack : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawSphere(enemyCheckPoint.position,_status.attackRange);
+        Gizmos.DrawSphere(enemyCheckPoint.position, enemyCheckSize);
     }
 }

@@ -13,15 +13,21 @@ MonoBehaviour:
   m_Name: Enemy01
   m_EditorClassIdentifier: 
   maxHp: 10
-  moveSpeed: 30
-  damage: 0
-  originMaxHp: 10
+  moveSpeed: 35
+  damage: 1
+  originMaxHp: 6
   originMoveSpeed: 30
   originDamage: 1
-  canSpawn: 0
+  level: 1
+  sprite01: {fileID: 21300000, guid: 4616dab2d37704844937a8a4b5114f32, type: 3}
+  sprite02: {fileID: 21300000, guid: 8dc64cca88863414abe82b1bc3aa2554, type: 3}
+  sprite03: {fileID: 21300000, guid: 55467fd939e07e843b6de6c89a1b4470, type: 3}
   isRanged: 0
   canShoot: 0
   attackRange: 0
-  fireRate: 0
-  bullet: {fileID: 6082539949576056138, guid: c0d26c8045d332f4eb46b28305ecfb1e, type: 3}
+  fireRate: 45
+  bullet01: {fileID: 0}
+  bullet02: {fileID: 0}
+  bullet03: {fileID: 0}
   bulletSpeed: 0
+  isBoss: 0

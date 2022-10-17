@@ -104,7 +104,7 @@ MonoBehaviour:
   expValor: 5
   moveSpeed: 500
   dropCheckPoint: {fileID: 7808076842263037522}
-  dropCheckSize: 8
+  dropCheckSize: 9
   dropLayer:
     serializedVersion: 2
     m_Bits: 64

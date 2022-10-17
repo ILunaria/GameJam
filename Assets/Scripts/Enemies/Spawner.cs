@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+
+    private SoundPitchChanger spawnControler;
     private GameObject holder;
     [Header("Enemys GO")]
     [SerializeField] private List<GameObject> enemies = new List<GameObject>();
@@ -17,13 +19,11 @@ public class Spawner : MonoBehaviour
     private int minEnemies;
     private int enemiesNumber;
 
-    [SerializeField] private TimerSO TimerSO;
-
     private void Start()
     {
+        spawnControler = FindObjectOfType<SoundPitchChanger>().GetComponent<SoundPitchChanger>();
         holder = GameObject.Find("EnemyHolder");
         StartCoroutine(SpawnRate());
-        StartCoroutine(MoreEnemy());
     }
     private void Update()
     {
@@ -54,16 +54,19 @@ public class Spawner : MonoBehaviour
     {
         while (true)
         {
-            Spawn();
-            yield return new WaitForSecondsRealtime(spawnDelay);
-        }
-    }
-    IEnumerator MoreEnemy()
-    {
-        while (maxEnemies < 10)
-        {
-            yield return new WaitForSeconds(timeToMoreEnemies);
-            maxEnemies++;
+            if(spawnControler.hasBoss)
+            {
+                yield return null;
+            }
+            else
+            {
+                Spawn();
+                if(maxEnemies < 10)
+                {
+                    maxEnemies += 1;
+                }
+                yield return new WaitForSecondsRealtime(spawnDelay);
+            }
         }
     }
 }

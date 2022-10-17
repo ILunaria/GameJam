@@ -68,7 +68,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _status: {fileID: 11400000, guid: 3ffda71dd0e9cff47b16030018522f6e, type: 2}
   drop: {fileID: 152500415587816665, guid: dcabe43b07ed0ee41ae806b8f8aeab83, type: 3}
-  spriteRenderer: {fileID: 1448104144215854824}
+  rotate: {fileID: 1448104144215854825}
+  spriteRender: {fileID: 1448104144215854824}
 --- !u!114 &8522668877679656646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,7 +114,7 @@ GameObject:
   - component: {fileID: 1448104144215854825}
   - component: {fileID: 1448104144215854824}
   m_Layer: 8
-  m_Name: Untitled-1
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -175,8 +176,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 35bb1a9f57f15414191c660c22f09617, type: 3}
-  m_Color: {r: 0.4660377, g: 1, b: 0.49085864, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 2580cef478f698449b768f63d0aa04b6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

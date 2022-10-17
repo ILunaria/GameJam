@@ -12,13 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be5e4704a78c2d14cafc3eeade66702d, type: 3}
   m_Name: Boss
   m_EditorClassIdentifier: 
-  maxHp: 5
-  moveSpeed: 50
-  damage: 2
-  originMaxHp: 5
-  originMoveSpeed: 50
-  originDamage: 2
-  canSpawn: 0
+  maxHp: 100
+  moveSpeed: 60
+  damage: 3
+  originMaxHp: 100
+  originMoveSpeed: 60
+  originDamage: 3
+  level: 0
+  sprite01: {fileID: 21300000, guid: b1e066ffd2bd7bc4799ef246aeacd7b2, type: 3}
+  sprite02: {fileID: 21300000, guid: 8dc64cca88863414abe82b1bc3aa2554, type: 3}
+  sprite03: {fileID: 21300000, guid: 55467fd939e07e843b6de6c89a1b4470, type: 3}
   isRanged: 0
   canShoot: 0
   attackRange: 0

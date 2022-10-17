@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Windows;
 
 public class PlayerGun : MonoBehaviour
 {
@@ -7,7 +9,7 @@ public class PlayerGun : MonoBehaviour
     [SerializeField] private PlayerStatus status;
     [SerializeField] GameObject weapon;
     [SerializeField] private float planeHeight;
-    [SerializeField] Transform bulletSpawn;
+    [SerializeField] private List<Transform> bulletSpawn = new List<Transform>();
     private float timeSinceLastShoot;
     PlayerInputs inputs;
     private Vector3 aimDirection;
@@ -52,7 +54,10 @@ public class PlayerGun : MonoBehaviour
         if (pause.isPaused) return;
         if (CanShoot())
         {
-            Instantiate(status.bullet, bulletSpawn.position, Quaternion.LookRotation(aimDirection, Vector3.up));
+            for(int i = 0; i < status.bullets; i++)
+            {
+                Instantiate(status.bullet, bulletSpawn[i].position, Quaternion.LookRotation(bulletSpawn[i].forward, Vector3.up));
+            }
 
             timeSinceLastShoot = 0f;
         }

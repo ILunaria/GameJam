@@ -18,6 +18,7 @@ public class PlayerStatus : Status
     public GameObject bullet;
     public float bulletSpeed;
     public float fireRate;
+    public int bullets;
 
     [Header("Original Status")]
     [SerializeField] private float originBulletSpeed;
@@ -43,5 +44,6 @@ public class PlayerStatus : Status
         fireRate = originFireRate;
         money = originMoney;
         isPlayerDead = false;
+        bullets = 1;
     }
 }

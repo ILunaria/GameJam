@@ -7,7 +7,7 @@ public class PlayerUpgrade : MonoBehaviour
 {
 
     [SerializeField] private PlayerStatus _status;
-    [SerializeField] private int priceMultiplier;
+    [SerializeField] private float priceMultiplier;
     private UpCardUI _ui;
 
     [Header("Status Upgrade in %")]
@@ -22,7 +22,6 @@ public class PlayerUpgrade : MonoBehaviour
     [SerializeField] private int maxSpeedLv;
     [SerializeField] private int maxFireRateLv;
     [SerializeField] private int maxDamageLv;
-    [SerializeField] private int maxHpLv;
 
     #region LEVEL STATUS VALOR
     private int speedLv;
@@ -52,6 +51,7 @@ public class PlayerUpgrade : MonoBehaviour
             _status.money -= price;
             _ui.UpCard(priceMultiplier);
 
+            SoundManager.PlaySound(SoundManager.Sound.UpgradeSound);
             speedLv += 1;
         }
     }
@@ -60,13 +60,15 @@ public class PlayerUpgrade : MonoBehaviour
         _ui = GameObject.Find("CardHP").GetComponent<UpCardUI>();
         int price = _ui.GetPrice();
         if (_status.money < price) return;
-        else if(hpLv < maxHpLv)
+        else if(hpLv < 13)
         {
             _status.maxHp += hp;
             _status.currentHp += hp;
             _status.money -= price;
             _ui.UpCard(priceMultiplier);
             _hp.ShowHp();
+
+            SoundManager.PlaySound(SoundManager.Sound.UpgradeSound);
             hpLv += 1;
         }
     }
@@ -81,6 +83,7 @@ public class PlayerUpgrade : MonoBehaviour
             _status.money -= price;
             _ui.UpCard(priceMultiplier);
 
+            SoundManager.PlaySound(SoundManager.Sound.UpgradeSound);
             fireRateLv += 1;
         }
     }
@@ -98,7 +101,24 @@ public class PlayerUpgrade : MonoBehaviour
             _status.money -= price;
             _ui.UpCard(priceMultiplier);
 
+            SoundManager.PlaySound(SoundManager.Sound.UpgradeSound);
             damageLv += 1;
+        }
+    }
+    public void BulletUpgrade()
+    {
+        _ui = GameObject.Find("CardBullets").GetComponent<UpCardUI>();
+        int price = _ui.GetPrice();
+        if (_status.money < price) return;
+        else if (_status.bullets < 6)
+        {
+            _status.bullets += 1;
+            _status.money -= price;
+            _ui.UpCard(priceMultiplier);
+            _hp.ShowHp();
+
+            SoundManager.PlaySound(SoundManager.Sound.UpgradeSound);
+            hpLv += 1;
         }
     }
 }

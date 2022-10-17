@@ -17,6 +17,7 @@ public static class SoundManager
         EnemySound,
         CollectableSound01,
         CollectableSound02,
+        UpgradeSound,
     }
     private static Dictionary<Sound, float> soundTimerDictionary;
     private static GameObject oneShotGameObject;
@@ -52,7 +53,7 @@ public static class SoundManager
             soundGO.transform.position = position;
             AudioSource audio = soundGO.AddComponent<AudioSource>();
             audio.clip = GetAudioClip(sound);
-            audio.volume = 0.6f;
+            audio.volume = 0.4f;
             audio.maxDistance = 20f;
             audio.spatialBlend = 1f;
             audio.rolloffMode = AudioRolloffMode.Linear;

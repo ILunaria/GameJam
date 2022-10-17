@@ -13,14 +13,16 @@ MonoBehaviour:
   m_Name: Jogador
   m_EditorClassIdentifier: 
   maxHp: 3
-  moveSpeed: 30
-  damage: 4
+  moveSpeed: 10
+  damage: 2
   originMaxHp: 3
   originMoveSpeed: 30
   originDamage: 2
-  money: 40
-  bullet: {fileID: 381475577117926661, guid: 06d36f4bcd091964cb7e4b5bd1e5b5ad, type: 3}
+  playerGravity: 0
+  money: 0
+  bullet: {fileID: 9020674465387799462, guid: 608f0b5a40e7504449e8b2a34514053e, type: 3}
   bulletSpeed: 50
-  fireRate: 156
+  fireRate: 120
+  bullets: 1
   originBulletSpeed: 50
   originFireRate: 120

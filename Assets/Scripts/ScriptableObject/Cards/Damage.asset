@@ -16,4 +16,4 @@ MonoBehaviour:
   upName: "Bra\xE7o forte"
   upDescription: Aumento de +2 no dano da Arma
   icon: {fileID: 21300000, guid: 4f08a18434d46a543a9a5387f145947e, type: 3}
-  startPrice: 10
+  startPrice: 50

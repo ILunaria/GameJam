@@ -35,14 +35,17 @@ public class PlayerMovement : MonoBehaviour
         inputs.Player.Enable();
         rb = GetComponent<Rigidbody>();
     }
-    private void FixedUpdate()
+    private void Update()
     {
-        if (pause.isPaused) return;
         if (Physics.CheckBox(_groundCheckPoint.position, _groundCheckSize, Quaternion.identity, _voidLayer))
         {
             _status.currentHp = 0;
             return;
         }
+    }
+    private void FixedUpdate()
+    {
+        if (pause.isPaused) return;
         Move(inputs.Player.Move.ReadValue<Vector2>());
         if (inputs.Player.Move.IsPressed())
         {

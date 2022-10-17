@@ -15,6 +15,6 @@ public class MoneyTracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        textMeshProUGUI.text = "Dinheiro: \n" + toTrack.money.ToString();
+        textMeshProUGUI.text = "Almas \n" + toTrack.money.ToString();
     }
 }

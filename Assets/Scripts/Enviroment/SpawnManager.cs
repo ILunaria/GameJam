@@ -10,7 +10,6 @@ public class SpawnManager : MonoBehaviour
 
     [Header("Time in seconds")]
     [SerializeField] private float BossSpawn;
-    [SerializeField] private float NewSpawnPoint;
 
     [Header("Spawn Point Settings")]
     [SerializeField] private int SpawnPoints;

@@ -28,9 +28,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 351046508881080984}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.745, y: 0.7, z: 1.228}
-  m_LocalScale: {x: 0.0978, y: 0.0978, z: 0.0978}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 351046509935025913}
   - {fileID: 5982886115272482697}
@@ -68,7 +68,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _status: {fileID: 11400000, guid: 2c4d77f6510c8664586e3b3264a08f0b, type: 2}
   drop: {fileID: 152500415587816665, guid: dcabe43b07ed0ee41ae806b8f8aeab83, type: 3}
-  spriteRenderer: {fileID: 351046509935025912}
+  rotate: {fileID: 351046509935025913}
+  spriteRender: {fileID: 351046509935025912}
 --- !u!114 &7386189035717258966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,8 +83,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _status: {fileID: 11400000, guid: 2c4d77f6510c8664586e3b3264a08f0b, type: 2}
+  _weapon: {fileID: 4146426611547569932}
   enemyCheckPoint: {fileID: 5982886115272482697}
-  enemyCheckSize: 0.8
+  enemyCheckSize: 0.1
   bulletSpawn: {fileID: 5309802055278007838}
   playerLayer:
     serializedVersion: 2
@@ -99,8 +101,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 7.531674
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 12.771879
+  m_Center: {x: 0, y: 9.45, z: 0}
 --- !u!1 &351046509935025914
 GameObject:
   m_ObjectHideFlags: 0
@@ -112,7 +114,7 @@ GameObject:
   - component: {fileID: 351046509935025913}
   - component: {fileID: 351046509935025912}
   m_Layer: 8
-  m_Name: Untitled-1
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -126,7 +128,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 351046509935025914}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -5.92, z: 0}
   m_LocalScale: {x: 1.9569349, y: 2.5368295, z: 0.8355828}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -174,7 +176,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f458af22aff5c554a957c2309417cd4a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b1e066ffd2bd7bc4799ef246aeacd7b2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
