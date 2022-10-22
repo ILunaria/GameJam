@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06230d9161a09734bbfbaf17a4127ef9, type: 3}
   m_Name: Jogador
   m_EditorClassIdentifier: 
-  maxHp: 3
-  moveSpeed: 10
-  damage: 2
+  maxHp: 10
+  moveSpeed: 35
+  damage: 12
   originMaxHp: 3
-  originMoveSpeed: 30
+  originMoveSpeed: 35
   originDamage: 2
   playerGravity: 0
-  money: 0
+  money: 404
   bullet: {fileID: 9020674465387799462, guid: 608f0b5a40e7504449e8b2a34514053e, type: 3}
   bulletSpeed: 50
-  fireRate: 120
-  bullets: 1
+  fireRate: 209
+  bullets: 5
   originBulletSpeed: 50
-  originFireRate: 120
+  originFireRate: 130

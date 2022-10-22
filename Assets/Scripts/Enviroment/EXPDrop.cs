@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EXPDrop : MonoBehaviour
 {
-    [SerializeField] private int expValor;
     private Rigidbody rb;
     private Transform target;
     private Player player;
@@ -46,7 +45,7 @@ public class EXPDrop : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             player = other.gameObject.GetComponent<Player>();
-            player.GetEXP(expValor);
+            player.GetEXP();
             SoundManager.PlaySound(SoundManager.Sound.CollectableSound01);
             gameObject.SetActive(false);
             Destroy(gameObject,1f);

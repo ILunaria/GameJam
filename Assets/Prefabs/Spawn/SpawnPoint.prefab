@@ -58,9 +58,9 @@ MonoBehaviour:
   - {fileID: 1448104143128355464, guid: 50bb42093d459d5459b015ce7d9372fb, type: 3}
   - {fileID: 1448104143128355464, guid: 50bb42093d459d5459b015ce7d9372fb, type: 3}
   spawnDelay: 10
-  timeToMoreEnemies: 10
+  timeToMoreEnemies: 60
   range: 2
-  maxEnemies: 2
+  maxEnemies: 1
   enemyHeight: 0
 --- !u!33 &9125996083951808863
 MeshFilter:

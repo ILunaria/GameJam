@@ -110,7 +110,7 @@ public class PlayerUpgrade : MonoBehaviour
         _ui = GameObject.Find("CardBullets").GetComponent<UpCardUI>();
         int price = _ui.GetPrice();
         if (_status.money < price) return;
-        else if (_status.bullets < 6)
+        else if (_status.bullets < 5)
         {
             _status.bullets += 1;
             _status.money -= price;

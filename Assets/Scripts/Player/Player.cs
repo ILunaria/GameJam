@@ -7,19 +7,30 @@ public class Player : MonoBehaviour
     [SerializeField] private PlayerStatus _status;
     [SerializeField] private float invulnerableTime = 0;
 
+    private int expValue = 5;
+    [SerializeField] float timeToMoreExp;
+    private float expTime;
+
     private AudioSource audioSource;
     private Animator animator;
     private HpBar hp;
     private float invulnerableTimer = 0;
     private void Awake()
     {
+        _status.OnPlayerReset();
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
-        hp = FindObjectOfType<HpBar>().GetComponent<HpBar>();
+        hp = FindObjectOfType<HpBar>().GetComponent<HpBar>();hp.ShowHp();
     }
     private void Update()
     {
         invulnerableTimer -= Time.deltaTime;
+        expTime -= Time.deltaTime;
+        if(expTime < 0)
+        {
+            expValue += 5;
+            expTime = timeToMoreExp;
+        }
 
         if(_status.currentHp <= 0)
         {
@@ -43,9 +54,9 @@ public class Player : MonoBehaviour
         }
         else return false;
     }
-    public void GetEXP(int valor)
+    public void GetEXP()
     {
-        _status.money += valor;
+        _status.money += expValue;
     }
     public void Death()
     {

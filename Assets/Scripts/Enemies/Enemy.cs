@@ -105,10 +105,7 @@ public class Enemy : MonoBehaviour
         attack.SetCanAttack(isDead);
         rb.velocity = Vector3.zero;
         checkCollider.enabled = false;
-        for(int i = 0; i <= _status.level; i++)
-        {
-            Instantiate(drop, transform.position, Quaternion.identity);
-        }
+        Instantiate(drop, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
     private void EnemyRotation()
