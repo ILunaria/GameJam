@@ -8,12 +8,8 @@ public class Bullet : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-
+        rb.AddForce(transform.forward * status.bulletSpeed, ForceMode.Impulse);
         SoundManager.PlaySound(SoundManager.Sound.PlayerAttack,transform.position);
-    }
-    private void FixedUpdate()
-    {
-        rb.velocity = transform.forward * (status.bulletSpeed * 10) * Time.fixedDeltaTime;
         Destroy(gameObject, 5f);
     }
     private void OnTriggerEnter(Collider other)
