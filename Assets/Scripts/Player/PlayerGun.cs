@@ -17,11 +17,13 @@ public class PlayerGun : MonoBehaviour
     private Vector3 worldPosition;
     private Plane plane;
     [SerializeField] private PauseUI pause;
+    PlayerAudioCuesHolder playerAudios;
     private void Start()
     {
         plane = new Plane(Vector3.down, weapon.transform.position.y);
         inputs = new PlayerInputs();
         inputs.Player.Enable();
+        playerAudios = GetComponent<PlayerAudioCuesHolder>();
     }
     // Update is called once per frame
     void Update()
@@ -57,6 +59,7 @@ public class PlayerGun : MonoBehaviour
             for(int i = 0; i < status.bullets; i++)
             {
                 Instantiate(status.bullet, bulletSpawn[i].position, Quaternion.LookRotation(bulletSpawn[i].forward, Vector3.up));
+                playerAudios.PlayShoot();
             }
 
             timeSinceLastShoot = 0f;

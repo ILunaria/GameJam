@@ -19,6 +19,9 @@ public class Enemy : MonoBehaviour
     private SphereCollider checkCollider;
     EnemyAttack attack;
     private Color baseColor;
+
+    [SerializeField] private AudioCue deathSound;
+    [SerializeField] private AudioCue SpawnSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +42,7 @@ public class Enemy : MonoBehaviour
         if(_status.isBoss)
         {
             _pitchChanger.hasBoss = true;
+            SpawnSound.PlayAudioCue();
         }
         transform.position = new Vector3(transform.position.x, 0.7f, transform.position.z);
         currentHp = _status.maxHp;
@@ -94,7 +98,9 @@ public class Enemy : MonoBehaviour
     }
     private void Death()
     {
-        if(_status.isBoss)
+        deathSound.PlayAudioCue();
+
+        if (_status.isBoss)
         {
             _status.damage = _status.damage * 2;
             _status.maxHp = _status.maxHp * 2;
@@ -106,6 +112,11 @@ public class Enemy : MonoBehaviour
         rb.velocity = Vector3.zero;
         checkCollider.enabled = false;
         Instantiate(drop, transform.position, Quaternion.identity);
+        StartCoroutine(WaitDeathSound());
+    }
+    IEnumerator WaitDeathSound()
+    {
+        yield return new WaitForSeconds(1f);
         Destroy(gameObject);
     }
     private void EnemyRotation()

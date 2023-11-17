@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1448104143128355471}
   - component: {fileID: 8522668877679656646}
   - component: {fileID: 1751257233029175369}
+  - component: {fileID: 3342985782569569112}
   m_Layer: 8
   m_Name: Ranged
   m_TagString: Enemy
@@ -70,6 +71,8 @@ MonoBehaviour:
   drop: {fileID: 152500415587816665, guid: dcabe43b07ed0ee41ae806b8f8aeab83, type: 3}
   rotate: {fileID: 1448104144215854825}
   spriteRender: {fileID: 1448104144215854824}
+  deathSound: {fileID: 3342985782569569112}
+  SpawnSound: {fileID: 0}
 --- !u!114 &8522668877679656646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,6 +106,24 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 7.531674
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3342985782569569112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448104143128355464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1def3c34e8ca9f643911baa4f03b898e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playOnStart: 0
+  _audioCue: {fileID: 11400000, guid: 775ff8ec820549449ac9dbc0c78ce386, type: 2}
+  _audioConfiguration: {fileID: 11400000, guid: 96f22a78a9ebd5f4b9008e7beb92df9d,
+    type: 2}
+  _audioCueEventChannel: {fileID: 11400000, guid: 98d4bc4c0628f60488c8ddcf4af9d468,
+    type: 2}
 --- !u!1 &1448104144215854826
 GameObject:
   m_ObjectHideFlags: 0

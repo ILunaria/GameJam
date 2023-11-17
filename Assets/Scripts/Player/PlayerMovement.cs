@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private PlayerStatus _status;
     [SerializeField] private Transform spr;
+    PlayerAudioCuesHolder playerAudios;
     private Rigidbody rb;
     private PlayerInputs inputs;
     private Vector2 moveDir;
@@ -30,10 +31,10 @@ public class PlayerMovement : MonoBehaviour
     {
         Debug.Log("PlayerAwake");
         pause = FindObjectOfType<PauseUI>().GetComponent<PauseUI>();
-        SoundManager.Initialize();
         inputs = new PlayerInputs();
         inputs.Player.Enable();
         rb = GetComponent<Rigidbody>();
+        playerAudios = GetComponent<PlayerAudioCuesHolder>();
     }
     private void Update()
     {
@@ -49,10 +50,7 @@ public class PlayerMovement : MonoBehaviour
         Move(inputs.Player.Move.ReadValue<Vector2>());
         if (inputs.Player.Move.IsPressed())
         {
-            SoundManager.PlaySound(SoundManager.Sound.PlayerMove01, transform.position);
-            SoundManager.PlaySound(SoundManager.Sound.PlayerMove02, transform.position);
-            SoundManager.PlaySound(SoundManager.Sound.PlayerMove03, transform.position);
-            SoundManager.PlaySound(SoundManager.Sound.PlayerMove04, transform.position);
+            playerAudios.PlayStep();
         }
     }
 

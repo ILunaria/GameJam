@@ -50,8 +50,6 @@ public class PlayerUpgrade : MonoBehaviour
             _status.fireRate += baseSpeed * (speedUpgrade / 100);
             _status.money -= price;
             _ui.UpCard(priceMultiplier);
-
-            SoundManager.PlaySound(SoundManager.Sound.UpgradeSound);
             speedLv += 1;
         }
     }
@@ -67,8 +65,6 @@ public class PlayerUpgrade : MonoBehaviour
             _status.money -= price;
             _ui.UpCard(priceMultiplier);
             _hp.ShowHp();
-
-            SoundManager.PlaySound(SoundManager.Sound.UpgradeSound);
             hpLv += 1;
         }
     }
@@ -82,8 +78,6 @@ public class PlayerUpgrade : MonoBehaviour
             _status.fireRate += baseFireRate * (fireRateUpgrade / 100);
             _status.money -= price;
             _ui.UpCard(priceMultiplier);
-
-            SoundManager.PlaySound(SoundManager.Sound.UpgradeSound);
             fireRateLv += 1;
         }
     }
@@ -100,8 +94,6 @@ public class PlayerUpgrade : MonoBehaviour
             _status.damage += damageUpgrade;
             _status.money -= price;
             _ui.UpCard(priceMultiplier);
-
-            SoundManager.PlaySound(SoundManager.Sound.UpgradeSound);
             damageLv += 1;
         }
     }
@@ -116,8 +108,6 @@ public class PlayerUpgrade : MonoBehaviour
             _status.money -= price;
             _ui.UpCard(priceMultiplier);
             _hp.ShowHp();
-
-            SoundManager.PlaySound(SoundManager.Sound.UpgradeSound);
             hpLv += 1;
         }
     }

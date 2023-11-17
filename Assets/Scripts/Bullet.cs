@@ -9,7 +9,6 @@ public class Bullet : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.AddForce(transform.forward * status.bulletSpeed, ForceMode.Impulse);
-        SoundManager.PlaySound(SoundManager.Sound.PlayerAttack,transform.position);
         Destroy(gameObject, 5f);
     }
     private void OnTriggerEnter(Collider other)

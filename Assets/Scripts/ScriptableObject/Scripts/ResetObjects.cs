@@ -21,7 +21,6 @@ public class ResetObjects : MonoBehaviour
     }
     public void OnDeath()
     {
-        SoundManager.PlaySound(SoundManager.Sound.PlayerDeath);
         StartCoroutine(Wait());
         timer.TimerReset();
         player.OnPlayerReset();

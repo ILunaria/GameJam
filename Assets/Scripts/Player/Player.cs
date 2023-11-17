@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private PlayerStatus _status;
     [SerializeField] private float invulnerableTime = 0;
+    PlayerAudioCuesHolder playerAudios;
 
     private int expValue = 5;
     [SerializeField] float timeToMoreExp;
@@ -21,6 +22,7 @@ public class Player : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
         hp = FindObjectOfType<HpBar>().GetComponent<HpBar>();hp.ShowHp();
+        playerAudios = GetComponent<PlayerAudioCuesHolder>();
     }
     private void Update()
     {
@@ -40,7 +42,7 @@ public class Player : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
-        SoundManager.PlaySound(SoundManager.Sound.PlayerDamage);
+        playerAudios.PlayDamage();
         invulnerableTimer = invulnerableTime;
         _status.currentHp -= damage;
         hp.ShowHp();

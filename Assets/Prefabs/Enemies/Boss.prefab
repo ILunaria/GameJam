@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 351046508881080991}
   - component: {fileID: 7386189035717258966}
   - component: {fileID: 615355803810465881}
+  - component: {fileID: -5781449560997708512}
+  - component: {fileID: -1810049812203005021}
   m_Layer: 8
   m_Name: Boss
   m_TagString: Enemy
@@ -70,6 +72,8 @@ MonoBehaviour:
   drop: {fileID: 152500415587816665, guid: dcabe43b07ed0ee41ae806b8f8aeab83, type: 3}
   rotate: {fileID: 351046509935025913}
   spriteRender: {fileID: 351046509935025912}
+  deathSound: {fileID: -5781449560997708512}
+  SpawnSound: {fileID: -1810049812203005021}
 --- !u!114 &7386189035717258966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,6 +107,42 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 12.771879
   m_Center: {x: 0, y: 9.45, z: 0}
+--- !u!114 &-5781449560997708512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351046508881080984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1def3c34e8ca9f643911baa4f03b898e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playOnStart: 0
+  _audioCue: {fileID: 11400000, guid: d184741f6b0ead543a7ed297c5fe6fd0, type: 2}
+  _audioConfiguration: {fileID: 11400000, guid: 16e1129f5b0e1f245b762ed02b073627,
+    type: 2}
+  _audioCueEventChannel: {fileID: 11400000, guid: 98d4bc4c0628f60488c8ddcf4af9d468,
+    type: 2}
+--- !u!114 &-1810049812203005021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351046508881080984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1def3c34e8ca9f643911baa4f03b898e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playOnStart: 0
+  _audioCue: {fileID: 11400000, guid: a2a324f16a6595d4ca3636b43e8aa984, type: 2}
+  _audioConfiguration: {fileID: 11400000, guid: 16e1129f5b0e1f245b762ed02b073627,
+    type: 2}
+  _audioCueEventChannel: {fileID: 11400000, guid: 98d4bc4c0628f60488c8ddcf4af9d468,
+    type: 2}
 --- !u!1 &351046509935025914
 GameObject:
   m_ObjectHideFlags: 0
