@@ -58,6 +58,7 @@ public class Player : MonoBehaviour
     }
     public void GetEXP()
     {
+        playerAudios.PlayExp();
         _status.money += expValue;
     }
     public void Death()

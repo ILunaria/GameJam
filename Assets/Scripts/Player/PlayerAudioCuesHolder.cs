@@ -22,11 +22,18 @@ public class PlayerAudioCuesHolder : MonoBehaviour
     private float lastShootSound;
     private bool canPlayShootSound;
     #endregion
+    #region SHOOT SOUND
+    [SerializeField] private AudioCue expSound;
+    [SerializeField] private float expSoundTimer;
+    [SerializeField] private float lastExpSound;
+    [SerializeField]private bool canPlayExpSound;
+    #endregion
     private void Update()
     {
         lastStepSound += Time.deltaTime;
         lastShootSound += Time.deltaTime;
         lastDamageSound += Time.deltaTime;
+        lastExpSound += Time.deltaTime;
 
         if(lastStepSound > stepSoundTimer)
         {
@@ -45,6 +52,11 @@ public class PlayerAudioCuesHolder : MonoBehaviour
             canPlayDamageSound = true;
         }
         else canPlayDamageSound = false;
+        if (lastExpSound > expSoundTimer)
+        {
+            canPlayExpSound = true;
+        }
+        else canPlayExpSound = false;
     }
     public void PlayStep()
     {
@@ -68,6 +80,14 @@ public class PlayerAudioCuesHolder : MonoBehaviour
         {
             damageSound.PlayAudioCue();
             lastDamageSound = 0;
+        }
+    }
+    public void PlayExp()
+    {
+        if (canPlayExpSound)
+        {
+            expSound.PlayAudioCue();
+            lastExpSound = 0;
         }
     }
 }
