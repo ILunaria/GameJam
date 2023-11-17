@@ -14,6 +14,6 @@ public class GroundFall : MonoBehaviour
     }
     public void EndFall()
     {
-        Destroy(gameObject);
+        Destroy(gameObject,1f);
     }
 }

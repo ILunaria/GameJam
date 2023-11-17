@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 6101039950034895610}
   - component: {fileID: 8811530279680682506}
   - component: {fileID: 6411765322863320729}
+  - component: {fileID: 5818252328053118675}
+  - component: {fileID: 4294542106621908259}
+  - component: {fileID: 5766141912634418538}
   m_Layer: 3
   m_Name: GroundHolder
   m_TagString: Untagged
@@ -66,6 +69,56 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5818252328053118675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4298943248252870646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57129516e4437294caf064552b0ad19a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundUp: {fileID: 4294542106621908259}
+  groundDown: {fileID: 5766141912634418538}
+--- !u!114 &4294542106621908259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4298943248252870646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1def3c34e8ca9f643911baa4f03b898e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playOnStart: 0
+  _audioCue: {fileID: 11400000, guid: 81cac5899005ee54ba57669707b728eb, type: 2}
+  _audioConfiguration: {fileID: 11400000, guid: 51dda861167913b46901deac38519efc,
+    type: 2}
+  _audioCueEventChannel: {fileID: 11400000, guid: 98d4bc4c0628f60488c8ddcf4af9d468,
+    type: 2}
+--- !u!114 &5766141912634418538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4298943248252870646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1def3c34e8ca9f643911baa4f03b898e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playOnStart: 0
+  _audioCue: {fileID: 11400000, guid: ad0eece30ca016843b30ff1d85e5ed2d, type: 2}
+  _audioConfiguration: {fileID: 11400000, guid: 51dda861167913b46901deac38519efc,
+    type: 2}
+  _audioCueEventChannel: {fileID: 11400000, guid: 98d4bc4c0628f60488c8ddcf4af9d468,
+    type: 2}
 --- !u!1001 &2825796507157719746
 PrefabInstance:
   m_ObjectHideFlags: 0

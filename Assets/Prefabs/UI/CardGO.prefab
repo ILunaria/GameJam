@@ -556,6 +556,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5143598705695560696}
   - component: {fileID: 5143598705695560697}
+  - component: {fileID: 6674176939462778336}
   m_Layer: 5
   m_Name: CardGO
   m_TagString: Untagged
@@ -608,6 +609,24 @@ MonoBehaviour:
   icon: {fileID: 5143598705755513193}
   price: {fileID: 7762471258886128236}
   _name: {fileID: 3657170899266951601}
+--- !u!114 &6674176939462778336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5143598705695560699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1def3c34e8ca9f643911baa4f03b898e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playOnStart: 0
+  _audioCue: {fileID: 0}
+  _audioConfiguration: {fileID: 11400000, guid: 8c4e111316325c24fbcafe8c2fcaa1fc,
+    type: 2}
+  _audioCueEventChannel: {fileID: 11400000, guid: 98d4bc4c0628f60488c8ddcf4af9d468,
+    type: 2}
 --- !u!1 &5143598705755513195
 GameObject:
   m_ObjectHideFlags: 0

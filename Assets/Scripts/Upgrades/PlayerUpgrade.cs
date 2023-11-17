@@ -34,6 +34,13 @@ public class PlayerUpgrade : MonoBehaviour
 
     private HpBar _hp;
 
+    [Header("Sounds")]
+    [SerializeField] private AudioCue hpSound;
+    [SerializeField] private AudioCue speedSound;
+    [SerializeField] private AudioCue fireRateSound;
+    [SerializeField] private AudioCue multiShootSound;
+    [SerializeField] private AudioCue damageSound;
+
     private void Awake()
     {
         _hp = FindObjectOfType<HpBar>().GetComponent<HpBar>();
@@ -50,6 +57,7 @@ public class PlayerUpgrade : MonoBehaviour
             _status.fireRate += baseSpeed * (speedUpgrade / 100);
             _status.money -= price;
             _ui.UpCard(priceMultiplier);
+            speedSound.PlayAudioCue();
             speedLv += 1;
         }
     }
@@ -65,6 +73,7 @@ public class PlayerUpgrade : MonoBehaviour
             _status.money -= price;
             _ui.UpCard(priceMultiplier);
             _hp.ShowHp();
+            hpSound.PlayAudioCue();
             hpLv += 1;
         }
     }
@@ -78,6 +87,7 @@ public class PlayerUpgrade : MonoBehaviour
             _status.fireRate += baseFireRate * (fireRateUpgrade / 100);
             _status.money -= price;
             _ui.UpCard(priceMultiplier);
+            fireRateSound.PlayAudioCue();
             fireRateLv += 1;
         }
     }
@@ -94,6 +104,7 @@ public class PlayerUpgrade : MonoBehaviour
             _status.damage += damageUpgrade;
             _status.money -= price;
             _ui.UpCard(priceMultiplier);
+            damageSound.PlayAudioCue();
             damageLv += 1;
         }
     }
@@ -108,6 +119,7 @@ public class PlayerUpgrade : MonoBehaviour
             _status.money -= price;
             _ui.UpCard(priceMultiplier);
             _hp.ShowHp();
+            multiShootSound.PlayAudioCue();
             hpLv += 1;
         }
     }
