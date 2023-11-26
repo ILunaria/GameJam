@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5122923573260035346}
-  - component: {fileID: 5122923573260035347}
   - component: {fileID: 5122923573260035344}
+  - component: {fileID: 1242040764}
   m_Layer: 0
   m_Name: SOObject
   m_TagString: Untagged
@@ -33,19 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5122923573260035347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5122923573260035345}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cef251dbfbc72924cb6cb9254b16671e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sound: {fileID: 11400000, guid: 23b555ee6ef0eaf46a401faaee04f361, type: 2}
 --- !u!82 &5122923573260035344
 AudioSource:
   m_ObjectHideFlags: 0
@@ -55,11 +42,12 @@ AudioSource:
   m_GameObject: {fileID: 5122923573260035345}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: edded72d983c235478525576611a8e30, type: 3}
+  OutputAudioMixerGroup: {fileID: -7855364320028564895, guid: ed55bddb4217e2948b91cbce48e3d2d0,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 2dace5a5f0c8abd4ab2cb11b8b9560ce, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.7
-  m_Pitch: 2.5
+  m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
@@ -142,3 +130,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1242040764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5122923573260035345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f75da8e2db366e4e84ed48f313dec8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioManager: {fileID: 0}
+  sliderMaster: {fileID: 0}
+  sliderMusic: {fileID: 0}
+  sliderSFX: {fileID: 0}

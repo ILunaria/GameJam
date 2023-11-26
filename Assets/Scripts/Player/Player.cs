@@ -12,14 +12,12 @@ public class Player : MonoBehaviour
     [SerializeField] float timeToMoreExp;
     private float expTime;
 
-    private AudioSource audioSource;
     private Animator animator;
     private HpBar hp;
     private float invulnerableTimer = 0;
     private void Awake()
     {
         _status.OnPlayerReset();
-        audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
         hp = FindObjectOfType<HpBar>().GetComponent<HpBar>();hp.ShowHp();
         playerAudios = GetComponent<PlayerAudioCuesHolder>();
@@ -65,9 +63,5 @@ public class Player : MonoBehaviour
     {
         gameObject.SetActive(false);
         PlayerDeath.OnPlayerDeath();
-    }
-    public void PlayDeathSound()
-    {
-        audioSource.Play();
     }
 }

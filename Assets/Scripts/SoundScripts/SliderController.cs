@@ -1,36 +1,63 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class SliderController : MonoBehaviour
 {
-    public AudioMixerGroup audioMixerGroup;
-    public Slider slider;
+    [SerializeField] private AudioManager audioManager;
+    [SerializeField] private Slider sliderMaster;
+    [SerializeField] private Slider sliderMusic;
+    [SerializeField] private Slider sliderSFX;
 
-    private string volumePlayerPrefsKey = "MusicVolume";
+    private string masterVolumePlayerPrefsKey = "MasterVolume";
+    private string musicVolumePlayerPrefsKey = "MusicVolume";
+    private string sfxVolumePlayerPrefsKey = "SFXVolume";
 
-    void Start()
+    private void Start()
     {
-        SetVolume(slider.value);
-    }
 
+        float masterSavedVolume = PlayerPrefs.GetFloat(masterVolumePlayerPrefsKey, sliderMaster.value);
+        float musicSavedVolume = PlayerPrefs.GetFloat(musicVolumePlayerPrefsKey, sliderMusic.value);
+        float sfxSavedVolume = PlayerPrefs.GetFloat(sfxVolumePlayerPrefsKey, sliderSFX.value);
+
+        SetMasterVolume(masterSavedVolume);
+        SetMusicVolume(musicSavedVolume);
+        SetSFXVolume(sfxSavedVolume);
+    }
     void Awake()
     {
-        slider.onValueChanged.AddListener(SetVolume);
-        float savedVolume = PlayerPrefs.GetFloat(volumePlayerPrefsKey, slider.value);
-        slider.value = savedVolume;
-        SetVolume(savedVolume);
+
+        sliderMaster.onValueChanged.AddListener(SetMasterVolume);
+        sliderMusic.onValueChanged.AddListener(SetMusicVolume);
+        sliderSFX.onValueChanged.AddListener(SetSFXVolume);
+
+        float masterSavedVolume = PlayerPrefs.GetFloat(masterVolumePlayerPrefsKey, sliderMaster.value);
+        float musicSavedVolume = PlayerPrefs.GetFloat (musicVolumePlayerPrefsKey, sliderMusic.value);
+        float sfxSavedVolume = PlayerPrefs.GetFloat(sfxVolumePlayerPrefsKey, sliderSFX.value);
+
+        sliderMaster.value = masterSavedVolume;
+        sliderMusic.value = musicSavedVolume;
+        sliderSFX.value = sfxSavedVolume;
     }
-
-    void SetVolume(float volume)
+    void SetMasterVolume(float value)
     {
-        audioMixerGroup.audioMixer.SetFloat("MusicVolume", Mathf.Log10(volume) * 20);
+        audioManager.ChangeMasterVolume(value);
 
-        PlayerPrefs.SetFloat(volumePlayerPrefsKey, volume);
+        PlayerPrefs.SetFloat(masterVolumePlayerPrefsKey,value);
         PlayerPrefs.Save();
     }
-    
+    void SetMusicVolume(float value)
+    {
+        audioManager.ChangeMusicVolume(value);
+
+        PlayerPrefs.SetFloat(musicVolumePlayerPrefsKey, value);
+        PlayerPrefs.Save();
+    }
+    void SetSFXVolume(float value)
+    {
+        audioManager.ChangeSFXVolume(value);
+
+        PlayerPrefs.SetFloat(sfxVolumePlayerPrefsKey, value);
+        PlayerPrefs.Save();
+    }
+
 }

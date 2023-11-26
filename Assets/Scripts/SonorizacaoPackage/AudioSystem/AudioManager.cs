@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Rendering;
 
 public class AudioManager : MonoBehaviour
 {
+    private AudioManager instance;
+
   [SerializeField] [Range(0f, 1f)] private float _sfxVolume = 1f;
   [SerializeField] [Range(0f, 1f)] private float _musicVolume = 1f;
   [SerializeField] [Range(0f, 1f)] private float _masterVolume = 1f;
@@ -25,8 +28,18 @@ public class AudioManager : MonoBehaviour
   {
     _soundEmitterCollection = new SoundEmitterCollection();
   }
+    private void Awake()
+    {
+        if(instance != null & instance != this)
+        {
+            Destroy(this);
+        }
+        else instance = this;
 
-  public AudioCueKey PlayAudioCue(AudioCueSO audioCue, AudioConfigurationSO audioConfiguration, Vector3 position)
+        DontDestroyOnLoad(this);
+    }
+
+    public AudioCueKey PlayAudioCue(AudioCueSO audioCue, AudioConfigurationSO audioConfiguration, Vector3 position)
   {
     AudioClip[] audioClips = audioCue.GetClips();
     SoundEmitter[] soundEmitters = new SoundEmitter[audioClips.Length];
@@ -213,7 +226,7 @@ public class AudioManager : MonoBehaviour
 
   private float NormalizedToMixerValue(float normalizedValue)
   {
-    return (normalizedValue - 1) * 80f;
+        return Mathf.Log10(normalizedValue) * 20; //(normalizedValue - 1) * 80f;
   }
 
   private float MixerValueToNormalized(float mixerValue)
